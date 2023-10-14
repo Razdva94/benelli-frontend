@@ -1,0 +1,92 @@
+.motoCard {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  &__container {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__linkContainer {
+    display: flex;
+    flex-direction: row;
+  }
+  &__link {
+    all: unset;
+    margin: 0;
+    cursor: pointer;
+  }
+  &__image {
+    object-fit: contain !important;
+    cursor: zoom-in;
+    height: auto;
+    width: 100%;
+  }
+  &__pictureContainer {
+    width: 700px;
+    height: 700px;
+    border: 2px solid var(--main-orange);
+  }
+  &__catalogContainer {
+    width: 700px;
+    height: fit-content;
+    background-color: white;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    float: left;
+  }
+  &__textContainer {
+    width: 100%;
+  }
+  &__text {
+    margin-top: 0;
+    line-height: 1.5;
+    font-size: .9rem;
+  }
+  &__title {
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 0;
+    padding-top: 3.5rem;
+    background-color: var(--main-light);
+    padding-bottom: 3.5rem;
+  }
+  &__wrapper {
+    display: flex;
+    margin-bottom: 15vh;
+  }
+  &__miniTitle {
+    margin: 0;
+    font-size: 1rem;
+  }
+  &__performanceText {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 0;
+    text-transform: none;
+    height: fit-content;
+  }
+  &__cell {
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    border-bottom: 2px solid var(--main-orange);
+  }
+  &__orderContainer {
+    align-items: center;
+    display: flex;
+    margin-top: 1.5rem;
+    justify-content: space-between;
+  }
+  &__price{
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,35 @@
+.header {
+  width: 100vw;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-dark);
+  box-shadow: 0px 5px 10px rgba(29, 33, 42, 0.5);
+  z-index: 2;
+  &__container {
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+  }
+  &__logo {
+    background: none;
+    box-sizing: border-box;
+    height: 100px;
+    width: 200px;
+    overflow: hidden;
+    transform: scale(2);
+  }
+  &__imageContainer {
+    width: 200px; 
+    height: 100px; 
+    overflow: hidden; 
+  }
+  &__number{
+    color: var(--main-light);
+    margin-left: 70px;
+  }
+}
