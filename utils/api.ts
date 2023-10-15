@@ -35,7 +35,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://benellispb.ru/api/',
+  baseUrl: 'https://benellispb.ru/api',
   headers: {
     'Content-Type': 'application/json',
   },
