@@ -8,18 +8,30 @@ const Header = () => {
   return (
     <header className={headerStyles.header}>
       <div className={headerStyles.header__container}>
-        <div className={headerStyles.header__imageContainer}>
-          <Image
-            src={logo}
-            alt='лого'
-            className={headerStyles.header__logo}
-            width={200}
-            height={500}
+          <div className={headerStyles.header__imageContainer}>
+            <Image
+              src={logo}
+              alt='лого'
+              className={headerStyles.header__logo}
+            />
+          </div>
+          <Navigation />
+          <p className={headerStyles.header__number}>+7(812)456-1903</p>
+      </div>
+      <div className={headerStyles.header__flag}>
+          <div
+            style={{ backgroundColor: 'green' }}
+            className={headerStyles.header__flagSector}
+          />
+          <div
+            className={headerStyles.header__flagSector}
+            style={{ backgroundColor: 'white' }}
+          />
+          <div
+            className={headerStyles.header__flagSector}
+            style={{ backgroundColor: 'rgb(198, 29, 29)' }}
           />
         </div>
-        <Navigation />
-        <p className={headerStyles.header__number}>+7(812)456-1903</p>
-      </div>
     </header>
   );
 };

@@ -7,6 +7,34 @@
   font-weight: 400;
   /* font-display: block; */
 }
+@font-face {
+  font-family: 'Akony';
+  src:
+    url(./fonts/AKONY.ttf) format('truetype');
+  font-weight: 400;
+  /* font-display: block; */
+}
+@font-face {
+  font-family: 'Furore';
+  src:
+    url(./fonts/Furore.otf) format('opentype');
+  font-weight: 400;
+  /* font-display: block; */
+}
+@font-face {
+  font-family: 'Montserrat';
+  src:
+    url(./fonts/Montserrat-Regular.ttf) format('truetype');
+  font-weight: 400;
+  /* font-display: block; */
+}
+@font-face {
+  font-family: 'Montserrat';
+  src:
+    url(./fonts/Montserrat-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  /* font-display: block; */
+}
 
 @font-face {
   font-family: 'Inter';

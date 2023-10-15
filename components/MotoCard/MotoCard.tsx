@@ -42,7 +42,7 @@ const MotoCard: React.FC<MotoProps> = ({
         </nav>
         <div className={motoCardStyles.motoCard__wrapper}>
           <div className={motoCardStyles.motoCard__catalogContainer}>
-            <h3 className={motoCardStyles.motoCard__title}>Мотоцикл {name}</h3>
+            <h3 className={motoCardStyles.motoCard__title}>Мотоцикл <br />{name}</h3>
             {catalog && (
               <>
                 <Swiper
@@ -121,7 +121,7 @@ const MotoCard: React.FC<MotoProps> = ({
           <div className={motoCardStyles.motoCard__textContainer}>
             <h3
               className={motoCardStyles.motoCard__title}
-              style={{ borderBottom: '2px solid var(--main-orange)' }}
+              style={{ borderBottom: '2px solid var(--main-orange)'}}
             >
               Технические характеристики
             </h3>

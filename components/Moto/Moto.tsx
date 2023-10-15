@@ -16,7 +16,7 @@ const Moto: React.FC<MotoProps> = ({ name, price, image }) => {
               className={motoStyles.moto__image}
             />
           </div>
-          <p className={motoStyles.moto__name}>{name}</p>
+          <h4 className={motoStyles.moto__name}>{name}</h4>
           <p className={motoStyles.moto__price}>{price}</p>
         </>
       )}

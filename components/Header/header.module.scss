@@ -1,14 +1,14 @@
 .header {
-  width: 100vw;
-  height: 12vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--main-dark);
-  box-shadow: 0px 5px 10px rgba(29, 33, 42, 0.5);
   z-index: 2;
+  flex-direction: column;
   &__container {
     max-width: 1280px;
+    height: 12vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -18,8 +18,8 @@
   &__logo {
     background: none;
     box-sizing: border-box;
-    height: 100px;
-    width: 200px;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     transform: scale(2);
   }
@@ -30,6 +30,17 @@
   }
   &__number{
     color: var(--main-light);
+    margin: 0;
     margin-left: 70px;
+  }
+  &__flag{
+    width: 100%;
+    height: .5rem;
+    display: flex;
+    z-index: 3;
+  }
+  &__flagSector{
+    width: 100%;
+    height: 100%;
   }
 }

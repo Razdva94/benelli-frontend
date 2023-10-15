@@ -40,9 +40,11 @@ const Footer = () => {
         </div>
         <div className={footerStyles.footer__sectorContainer}>
           <h5 className={footerStyles.footer__linkHeader}>Контакты</h5>
-        </div>
-        <div className={footerStyles.footer__sectorContainer}>
-          <h5 className={footerStyles.footer__linkHeader}>Мотоцентр СПб</h5>
+          <p style={{ textTransform: 'uppercase', color: 'var(--main-light)', fontSize: '.8rem'}}>Мотоцентр Арсенал</p>
+          <p style={{color: 'var(--main-light)', margin: '0', fontSize: '.8rem'}}>Официальный дилер BENELLI</p>
+          <p style={{color: 'var(--main-light)', margin: '0', fontSize: '.8rem'}}>в Санкт-Петербурге</p>
+          <p style={{color: 'var(--main-light)', margin: '0', fontSize: '.8rem', marginTop:'1rem'}}>Пискаревский проспект 144АК</p>
+          <p style={{color: 'var(--main-light)', margin: '0', fontSize: '.8rem'}}>+7(812) 456-1903</p>
         </div>
       </div>
     </footer>
@@ -50,3 +52,9 @@ const Footer = () => {
 };
 
 export default Footer;
+
+// Официальный  дилер BENELLI
+// в Санкт-Петербурге
+
+// Пискаревский проспект 144АК
+// +7(812) 456-1903

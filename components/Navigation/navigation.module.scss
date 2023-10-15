@@ -20,6 +20,8 @@
   height: 100%;
   margin-right: 0;
   margin-left: auto;
+  display: flex;
+  align-items: center;
   &__link {
     @include link-text(#fcfbfa, rgba(0, 0, 0, 0.1), none);
     border: none;
