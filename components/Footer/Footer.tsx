@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
         </div>
         <div className={footerStyles.footer__sectorContainer}>
-          <h5 className={footerStyles.footer__linkHeader}>Контакты</h5>
+          <h5 className={footerStyles.footer__linkHeader} id='contacts'>Контакты</h5>
           <p style={{ textTransform: 'uppercase', color: 'var(--main-light)', fontSize: '.8rem'}}>Мотоцентр Арсенал</p>
           <p style={{color: 'var(--main-light)', margin: '0', fontSize: '.8rem'}}>Официальный дилер BENELLI</p>
           <p style={{color: 'var(--main-light)', margin: '0', fontSize: '.8rem'}}>в Санкт-Петербурге</p>

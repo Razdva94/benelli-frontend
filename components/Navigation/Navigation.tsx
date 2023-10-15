@@ -9,19 +9,19 @@ const Navigation = () => {
         <Link
           className={navigationStyles.navigation__link}
           style={{ marginLeft: 'auto' }}
-          href='#'
+          href='/'
         >
          Главная
         </Link>
         <Link
           className={navigationStyles.navigation__link}
-          href='#'
+          href='/#motorcycles'
         >
           Мотоциклы
         </Link>
         <Link
           className={navigationStyles.navigation__link}
-          href='#'
+          href='#contacts'
         >
           Контакты
         </Link>

@@ -8,7 +8,7 @@ const MotoList = () => {
   return (
     <section className={motoListStyles.motoList}>
       <div className={motoListStyles.motoList__container}>
-        <h2 className={motoListStyles.motoList__title}>Мотоциклы</h2>
+        <h2 className={motoListStyles.motoList__title} id='motorcycles'>Мотоциклы</h2>
         <div className={motoListStyles.motoList__catalog}>
           {MOTOCYCLES_lIST.map((moto, i) => (
             <Link href={`/${moto.name}`} style={{ textDecoration: 'none' }}>
