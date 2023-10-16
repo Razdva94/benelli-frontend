@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
+      <head>
+        <meta name='yandex-verification' content='fe483d98bcc96f41' />
+      </head>
       <body>
         <Header />
         <main className={mainStyles.main}>{children}</main>
