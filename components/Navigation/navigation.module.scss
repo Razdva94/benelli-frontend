@@ -1,21 +1,3 @@
-@mixin link-text($color, $background-color_hover, $background-color) {
-  all: unset;
-  border: solid 1px rgba(48, 35, 145, 0.7);
-  border-radius: 6px;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  margin-left: 25px;
-  padding-left: 7px;
-  padding-right: 7px;
-  color: $color;
-  cursor: pointer;
-  font-weight: 600;
-  &:hover {
-    background-color: $background-color_hover;
-  }
-  background-color: $background-color;
-}
-
 .navigation {
   height: 100%;
   margin-right: 0;
@@ -23,7 +5,16 @@
   display: flex;
   align-items: center;
   &__link {
-    @include link-text(#fcfbfa, rgba(0, 0, 0, 0.1), none);
-    border: none;
+    all: unset;
+    margin-left: 25px;
+    padding-left: 7px;
+    padding-right: 7px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--main-light);
+    transition: opacity 1s ease;
+    &:hover{
+       opacity: .5;
+    }
   }
 }

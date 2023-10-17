@@ -1,7 +1,7 @@
 import React from 'react';
 import headerStyles from './header.module.scss';
 import Image from 'next/image';
-import logo from '@/public/images/1.svg';
+import logo from '@/public/images/1-01.png';
 import Navigation from '../Navigation/Navigation';
 
 const Header = () => {

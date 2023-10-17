@@ -33,9 +33,10 @@
   }
   &_opened {
     pointer-events: all;
-    opacity: 1;
-    transition: 0.5s all;
     z-index: 3;
+    opacity: 1;
+    transition: opacity .5s ease;
+
   }
   &__closeIcon {
     position: fixed;
@@ -43,7 +44,6 @@
     right: 1rem;
     width: 2rem;
     height: 2rem;
-    z-index: 5;
     cursor: pointer;
   }
   &__image {

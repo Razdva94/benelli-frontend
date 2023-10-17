@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import footerStyles from './footer.module.scss';
-import logo from '@/public/images/1.svg';
+import logo from '@/public/images/1-01.png';
+import gerb from '@/public/images/gerb_sankt-peterburga_Abali.ru.svg';
 import vk from '@/public/images/vk.png';
 import telegram from '@/public/images/telega.png';
 import instagram from '@/public/images/inst.png';
@@ -11,85 +12,49 @@ const Footer = () => {
   return (
     <footer className={footerStyles.footer}>
       <div className={footerStyles.footer__container}>
-        <div className={footerStyles.footer__sectorContainer} style={{flexDirection:'row'}}>
-          <div className={footerStyles.footer__imageContainer}>
-            <Image
-              src={logo}
-              alt='лого'
-              className={footerStyles.footer__logo}
-              width={200}
-            />
-          </div>
+        <div className={footerStyles.footer__imageContainer}>
           <Image
-            src={telegram}
-            alt='телега'
-            className={footerStyles.footer__icon}
+            src={logo}
+            alt='лого'
+            className={footerStyles.footer__logo}
+            width={200}
           />
-          <div className={footerStyles.footer__iconsContainer}>
-            {/* <Image
-              src={vk}
-              alt='вконтакте'
-              className={footerStyles.footer__icon}
-            /> */}
-
-            {/* <Image
-              src={instagram}
-              alt='инста'
-              className={footerStyles.footer__icon}
-            /> */}
-          </div>
         </div>
-        <div className={footerStyles.footer__sectorContainer}>
-          <h5 className={footerStyles.footer__linkHeader} id='contacts'>
-            Контакты
-          </h5>
+        <div className={footerStyles.footer__textContainer}>
           <p
-            style={{
-              textTransform: 'uppercase',
-              color: 'var(--main-light)',
-              fontSize: '.8rem',
-            }}
+            className={footerStyles.footer__text}
+            style={{ textTransform: 'uppercase' }}
           >
             Мотоцентр Арсенал
           </p>
-          <p
-            style={{
-              color: 'var(--main-light)',
-              margin: '0',
-              fontSize: '.8rem',
-            }}
-          >
-            Официальный дилер BENELLI
-          </p>
-          <p
-            style={{
-              color: 'var(--main-light)',
-              margin: '0',
-              fontSize: '.8rem',
-            }}
-          >
-            в Санкт-Петербурге
-          </p>
-          <p
-            style={{
-              color: 'var(--main-light)',
-              margin: '0',
-              fontSize: '.8rem',
-              marginTop: '1rem',
-            }}
-          >
+          <p className={footerStyles.footer__text}>Официальный дилер BENELLI</p>
+          <p className={footerStyles.footer__text}>в Санкт-Петербурге</p>
+        </div>
+        <div className={footerStyles.footer__textContainer}>
+          <p className={footerStyles.footer__text}>
             Пискаревский проспект 144АК
           </p>
-          <p
-            style={{
-              color: 'var(--main-light)',
-              margin: '0',
-              fontSize: '.8rem',
-            }}
+          <p className={footerStyles.footer__text}>+7(812) 456-1903</p>
+          <Link
+            href='https://t.me/+J-rVqZHkc-BjOGNi'
+            className={footerStyles.footer__link}
+            target='_blank'
           >
-            +7(812) 456-1903
-          </p>
+            Телеграм
+            <Image
+              src={telegram}
+              alt='телега'
+              className={footerStyles.footer__icon}
+             
+            />
+          </Link>
         </div>
+        <Image
+          src={gerb}
+          alt='герб'
+          className={footerStyles.footer__logo}
+          width={100}
+        />
       </div>
     </footer>
   );
