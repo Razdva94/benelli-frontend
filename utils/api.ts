@@ -78,12 +78,12 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:3000/api',
+  baseUrl: 'https://benellispb.ru/api',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 // https://benellispb.ru/api
-
+// http://localhost:3000/api
 export default api;
