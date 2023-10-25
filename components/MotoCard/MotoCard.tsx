@@ -30,6 +30,8 @@ const MotoCard: React.FC<any> = ({ params }) => {
     return moto.motoName === params.motorcycles;
   });
   console.log(motorcycle);
+  console.log(params)
+  console.log(motorcycles)
   if (motorcycle) {
     const { catalog, description, motoName, motoPerformance, motoPrice } =
       motorcycle;

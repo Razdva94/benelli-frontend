@@ -84,6 +84,6 @@ const api = new Api({
   },
 });
 
-// https://benellispb.ru/api
-// http://localhost:3000/api
+// https://benellispb.ru/apiS
+// http://localhost:3000/apiS
 export default api;
