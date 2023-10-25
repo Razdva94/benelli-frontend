@@ -27,7 +27,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
   }, []);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
   const motorcycle: any = motorcycles.find((moto: any) => {
-    return moto.motoName === params.motorcycles;
+    return moto.motoName === params.motorcycles.replace(/_/g, ' ');
   });
   console.log(motorcycle);
   console.log(params)
