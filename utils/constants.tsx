@@ -58,7 +58,7 @@ export const PERFORMANCE_NAME = [
   'Снаряженная масса, кг',
   'Д/Ш/В, мм',
   'Колесная база, мм',
-  'Высота по седенью, мм',
+  'Высота сиденья, мм',
   'Объем бензобака, л',
   'Рабочий объем, см³',
   'Степень сжатия',
@@ -115,13 +115,18 @@ export const LEONCINO_500 = {
 };
 
 /*502c*/
-
+const moto502c20 = {
+  width: 10000,
+  height: 10000,
+  src: 'https://downloader.disk.yandex.ru/preview/d956314df755a67cddeb769ce7289618d6fbbdec0fa6b189b03a8e68c8011264/6533da7a/P1Uu3IBvn2J_059WhlC9XydbkJ2sC_KEk2e_VtbYAOfuuRRO_ACnqYduWLfxvvz5VgHzs7xBXDvk4Qqe7B86gQ%3D%3D?uid=0&filename=%D0%93%D0%BE%D1%80%D1%8B.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=0&tknv=v2&size=1920x892'
+}
 const M502Images = [
   moto502c4,
   moto502c6,
   moto502c11,
   moto502c17,
   moto502c18,
+  moto502c20
 ];
 
 export const M502C = {

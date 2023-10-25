@@ -38,6 +38,8 @@ const Popup: React.FC<orderProps> = ({
               src={image}
               alt='мотоцикл'
               className={popupStyles.popup__image}
+              width={1000}
+                height={1000}
             />
             <p className={popupStyles.popup__text}>Мотоцикл {motoName}</p>
             <form

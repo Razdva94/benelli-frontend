@@ -1,15 +1,7 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
-export interface MotoProps {
-  name: string;
-  price?: string;
-  image?: StaticImageData;
-  catalog?: Array<any>;
-  description?: any;
-  performance?: any;
-}
 
-export interface orderProps{
+export interface orderProps {
   image: any;
   name: any;
   onClose?: any;

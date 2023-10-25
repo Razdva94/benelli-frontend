@@ -3,20 +3,13 @@ import { MOTOCYCLES_lIST } from '@/utils/constants';
 import MotoCard from '@/components/MotoCard/MotoCard';
 
 const page = ({ params }: { params: { motorcycles: string } }) => {
-  const moto = MOTOCYCLES_lIST.find((moto) => moto.name === params.motorcycles);
-  if (!moto) {
-    return <div>Motorcycle not found</div>;
-  }
-  const { name, catalog, description, performance, price } = moto;
+  console.log(params)
   return (
-    <MotoCard
-      name={name.replaceAll('_', ' ')}
-      catalog={catalog}
-      description={description}
-      performance={performance}
-      price={price}
+    <MotoCard params={params}
     />
   );
 };
 
 export default page;
+
+

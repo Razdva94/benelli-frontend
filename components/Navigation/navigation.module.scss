@@ -17,4 +17,9 @@
        opacity: .5;
     }
   }
+  &__number {
+    color: var(--main-light);
+    margin: 0;
+    margin-left: 3rem;
+  }
 }

@@ -18,25 +18,17 @@
   &__logo {
     background: none;
     box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-    transform: scale(2);
   }
   &__imageContainer {
-    width: 100px; 
+    width: 200px;
   }
-  &__number{
-    color: var(--main-light);
-    margin: 0;
-    margin-left: 70px;
-  }
-  &__flag{
+  &__flag {
     width: 100%;
-    height: .5rem;
+    height: 0.5rem;
     display: flex;
     z-index: 3;
   }
-  &__flagSector{
+  &__flagSector {
     width: 100%;
     height: 100%;
   }

@@ -13,10 +13,10 @@ const Header = () => {
               src={logo}
               alt='лого'
               className={headerStyles.header__logo}
+              width={200}
             />
           </div>
-          <Navigation />
-          <p className={headerStyles.header__number}>+7(812)456-1903</p>
+          <Navigation/>
       </div>
       <div className={headerStyles.header__flag}>
           <div
