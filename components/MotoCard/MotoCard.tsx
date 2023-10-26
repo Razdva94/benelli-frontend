@@ -104,6 +104,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   alt='мото'
                                   height={1000}
                                   width={1000}
+                                  quality={100}
                                 />
                               </div>
                             </SwiperSlide>
@@ -144,6 +145,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   alt='мотик'
                                   width={1000}
                                   height={1000}
+                                  quality={100}
                                 />
                               </div>
                             </SwiperSlide>

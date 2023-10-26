@@ -78,7 +78,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://benellispb.ru/apiS',
+  baseUrl: 'http://localhost:3000/apiS',
   headers: {
     'Content-Type': 'application/json',
   },
