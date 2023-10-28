@@ -1,12 +1,22 @@
 module.exports = {
   images: {
-    domains: ['disk.yandex.ru', 'citysklad24.ru', 'downloader.disk.yandex.ru', 'encrypted-tbn0.gstatic.com', '4.downloader.disk.yandex.ru', 'docs.google.com'], // Здесь перечислите разрешенные хосты
+    domains: [
+      'disk.yandex.ru',
+      'citysklad24.ru',
+      'downloader.disk.yandex.ru',
+      'encrypted-tbn0.gstatic.com',
+      '4.downloader.disk.yandex.ru',
+      'docs.google.com',
+    ], // Здесь перечислите разрешенные хосты
   },
   env: {
-    NEXTAUTH_URL: 'https://benellispb.ru', // Укажите правильный адрес
+    NEXTAUTH_URL: 'http://localhost:3001', // Укажите правильный адрес
   },
-
-}
+  webp: {
+    preset: 'default',
+    quality: 100,
+  },
+};
 
 //https://benellispb.ru
 // 'http://localhost:3001'
