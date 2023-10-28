@@ -1,11 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import footerStyles from './footer.module.scss';
-import logo from '@/public/images/1-01.png';
+import logo from '@/public/images/benelli_icon.png';
 import gerb from '@/public/images/gerb_sankt-peterburga_Abali.ru.svg';
-import vk from '@/public/images/vk.png';
+
 import telegram from '@/public/images/telega.png';
-import instagram from '@/public/images/inst.png';
 import Link from 'next/link';
 
 const Footer = () => {
