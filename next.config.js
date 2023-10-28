@@ -12,10 +12,6 @@ module.exports = {
   env: {
     NEXTAUTH_URL: 'https://benellispb.ru', // Укажите правильный адрес
   },
-  webp: {
-    preset: 'default',
-    quality: 100,
-  },
 };
 
 //https://benellispb.ru
