@@ -3,37 +3,37 @@
   src:
     url(./fonts/Inter-Regular.woff2) format('woff2'),
     url(./fonts/Inter-Regular.woff) format('woff');
-  font-family: 'Inter';
   font-weight: 400;
-  /* font-display: block; */
+}
+@font-face {
+  font-family: 'Oswald';
+  src:
+    url(./fonts/Oswald-Medium.ttf) format('truetype');
+  font-weight: 400;
 }
 @font-face {
   font-family: 'Akony';
   src:
     url(./fonts/AKONY.ttf) format('truetype');
   font-weight: 400;
-  /* font-display: block; */
 }
 @font-face {
   font-family: 'Furore';
   src:
     url(./fonts/Furore.otf) format('opentype');
   font-weight: 400;
-  /* font-display: block; */
 }
 @font-face {
   font-family: 'Montserrat';
   src:
     url(./fonts/Montserrat-Regular.ttf) format('truetype');
   font-weight: 400;
-  /* font-display: block; */
 }
 @font-face {
   font-family: 'Montserrat';
   src:
     url(./fonts/Montserrat-SemiBold.ttf) format('truetype');
   font-weight: 600;
-  /* font-display: block; */
 }
 
 @font-face {
@@ -44,7 +44,6 @@
   src:
     url(./fonts/Inter-Medium.woff2) format('woff2'),
     url(./fonts/Inter-Medium.woff) format('woff');
-  /* font-display: block; */
 }
 
 @font-face {
@@ -93,5 +92,4 @@
     url(./fonts/Italiana-Regular.woff2) format('woff2');
   font-weight: 400;
   font-display: swap;
-  /* Установите font-display в swap */
 }

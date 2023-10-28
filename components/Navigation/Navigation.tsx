@@ -19,11 +19,11 @@ function Navigation() {
           </Link>
           <Link
             className={navigationStyles.navigation__link}
-            href='/#motorcycles'
+            href='/#motorcycles1'
           >
             Мотоциклы
           </Link>
-          <Link className={navigationStyles.navigation__link} href='#'>
+          <Link className={navigationStyles.navigation__link} href='#footer'>
             Контакты
           </Link>
           <p className={navigationStyles.navigation__number}>+7(812)456-1903</p>
@@ -41,7 +41,7 @@ function Navigation() {
           </Link>
           <Link
             className={navigationStyles.navigation__link}
-            href='/#motorcycles'
+            href='/#motorcycles1'
           >
             Удалить Мотоциклы
           </Link>

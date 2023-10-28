@@ -11,7 +11,8 @@ export const authConfig: AuthOptions = {
        async authorize(credentials) {
         if (!credentials?.login || !credentials.password) return null;
         const { login, password } = credentials;
-        if(login === 'admin' && password === 'admin') {
+        console.log(login, password)
+        if(login === 'danila' && password === 'danila') {
           const user = {
             id: '1',
             name: 'admin'

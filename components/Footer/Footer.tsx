@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className={footerStyles.footer}>
+    <footer className={footerStyles.footer} id='footer'>
       <div className={footerStyles.footer__container}>
         <div className={footerStyles.footer__imageContainer}>
           <Image

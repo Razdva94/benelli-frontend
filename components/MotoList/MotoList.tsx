@@ -8,9 +8,10 @@ const MotoList = () => {
   const [motorcycle, setMotorcycle] = useState([]);
   const handleDeleteMoto = (motoName: string) => {
     api.deleteMotorcycle(motoName).then(() => {
-      const newArrMoto = motorcycle.filter((moto: string) => {
-        moto !== motoName;
+      const newArrMoto = motorcycle.filter((moto: any) => {
+        return moto.motoName !== motoName;
       });
+      console.log(newArrMoto);
       setMotorcycle(newArrMoto);
       localStorage.setItem('motorcycle', JSON.stringify(newArrMoto));
     });
@@ -23,7 +24,7 @@ const MotoList = () => {
     });
   }, []);
   return (
-    <section className={motoListStyles.motoList}>
+    <section className={motoListStyles.motoList} id='motorcycles1'>
       <div className={motoListStyles.motoList__container}>
         <h2 className={motoListStyles.motoList__title}>Мотоциклы</h2>
         <div className={motoListStyles.motoList__catalog}>

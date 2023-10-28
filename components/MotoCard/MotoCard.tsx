@@ -29,9 +29,6 @@ const MotoCard: React.FC<any> = ({ params }) => {
   const motorcycle: any = motorcycles.find((moto: any) => {
     return moto.motoName === params.motorcycles.replace(/_/g, ' ');
   });
-  console.log(motorcycle);
-  console.log(params)
-  console.log(motorcycles)
   if (motorcycle) {
     const { catalog, description, motoName, motoPerformance, motoPrice } =
       motorcycle;
@@ -102,8 +99,8 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   className={motoCardStyles.motoCard__image}
                                   src={el}
                                   alt='мото'
-                                  height={1000}
-                                  width={1000}
+                                  height={10000}
+                                  width={10000}
                                   quality={100}
                                 />
                               </div>
@@ -143,8 +140,8 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   className={motoCardStyles.motoCard__image}
                                   src={el}
                                   alt='мотик'
-                                  width={1000}
-                                  height={1000}
+                                  width={10000}
+                                  height={10000}
                                   quality={100}
                                 />
                               </div>
