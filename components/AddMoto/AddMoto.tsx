@@ -11,6 +11,7 @@ const AddMoto = () => {
   const { values, handleChange } = useForm();
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    console.log(values)
     const {
       compressionRation,
       gazValue,
@@ -82,10 +83,14 @@ const AddMoto = () => {
       photo8,
       photo9,
       photo10,
-    ].filter((photo) => typeof photo === 'string').map((url) => {
-      return `https://docs.google.com/uc?id=${url.match(/\/d\/(.+?)\//)[1]}` 
-    });
-    const directUrlImage = `https://docs.google.com/uc?id=${mainImage.match(/\/d\/(.+?)\//)[1]}`
+    ]
+      .filter((photo) => typeof photo === 'string')
+      .map((url) => {
+        return `https://docs.google.com/uc?id=${url.match(/\/d\/(.+?)\//)[1]}`;
+      });
+    const directUrlImage = `https://docs.google.com/uc?id=${
+      mainImage.match(/\/d\/(.+?)\//)[1]
+    }`;
     function openPopup() {
       setTimeout(() => setPopupState(false), 2000);
     }
@@ -443,10 +448,9 @@ const AddMoto = () => {
           </form>
         </div>
       </section>
-      { popupState && <FormSubPopup info={info[0]} popupType={info[1]} />}
+      {popupState && <FormSubPopup info={info[0]} popupType={info[1]} />}
     </>
   );
 };
 
 export default AddMoto;
-
