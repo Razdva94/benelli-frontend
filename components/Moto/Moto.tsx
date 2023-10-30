@@ -10,7 +10,7 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
   const session: any = useSession();
   const formattedName = name.replace(/ /g, '_');
   return (
-    <article className={motoStyles.moto}>
+    <section className={motoStyles.moto}>
       {image && (
         <>
           {session.status === 'authenticated' && (
@@ -39,7 +39,7 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
           <p className={motoStyles.moto__price}>{price}</p>
         </>
       )}
-    </article>
+    </section>
   );
 };
 
