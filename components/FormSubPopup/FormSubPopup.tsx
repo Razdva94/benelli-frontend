@@ -5,7 +5,6 @@ import regectmImage from '@/public/images/regect.png';
 import Image from 'next/image';
 
 const FormSubPopup: React.FC<any> = ({ info, popupType }) => {
-  console.log(popupType);
   return (
     <section
       className={formSubPopupStyles.formSubPopup}

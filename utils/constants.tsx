@@ -1,14 +1,3 @@
-// export const PERFORMANCE_NAME = [
-//   'Снаряженная масса, кг',
-//   'Д/Ш/В, мм',
-//   'Колесная база, мм',
-//   'Высота сиденья, мм',
-//   'Объем бензобака, л',
-//   'Рабочий объем, см³',
-//   'Степень сжатия',
-//   'Мощность, лс при об/мин',
-//   'Крутящий момент, Нм при об/мин',
-// ];
 
 /*leoncino500*/
 import leoncino1 from '@/public/images/Leoncino 500/01.jpg';
@@ -70,7 +59,7 @@ export const PERFORMANCE_NAME = [
   'Снаряженная масса, кг',
   'Д/Ш/В, мм',
   'Колесная база, мм',
-  'Высота по седенью, мм',
+  'Высота седенья, мм',
   'Объем бензобака, л',
   'Рабочий объем, см³',
   'Степень сжатия',
@@ -89,7 +78,7 @@ const leoncino500Images = [
 
 export const LEONCINO_500 = {
   image: leoncino500Images[0],
-  price: '780 000 руб.',
+  price: '595 000 руб.',
   name: 'Leonico_500',
   catalog: leoncino500Images,
   description: [
@@ -138,7 +127,7 @@ const M502Images = [
 
 export const M502C = {
   image: moto502c4,
-  price: '830 000 руб.',
+  price: '615 000 руб.',
   name: '502C',
   catalog: M502Images,
   description: [
@@ -198,7 +187,7 @@ const leoncino500TImages = [
 
 export const LEONCINO_500_TRAIL = {
   image: leoncinoT5,
-  price: '830 000 руб.',
+  price: '620 000 руб.',
   name: 'Leoncino_500_Trail',
   catalog: leoncino500TImages,
   description: [
@@ -247,7 +236,7 @@ const TRK251Images = [
 
 export const TRK251 = {
   image: TRK251n1,
-  price: '510 000 рублей',
+  price: '390 000 руб.',
   name: 'TRK_251',
   catalog: TRK251Images,
   description: [
@@ -306,7 +295,7 @@ const TRK502XImages = [
 
 export const TRK502X = {
   image: TRK502X1,
-  price: '880 000 руб.',
+  price: '649 000 руб.',
   name: 'TRK_502X',
   catalog: TRK502XImages,
   description: [
@@ -379,7 +368,7 @@ const TRK502Images = [
 
 export const TRK502 = {
   image: TRK502n1,
-  price: '790 000 руб.',
+  price: '629 000 руб.',
   name: 'TRK_502',
   catalog: TRK502Images,
   description: [
@@ -450,7 +439,7 @@ const Leonico800Images = [
 
 export const LEONICO800 = {
   image: leonico800n1,
-  price: '1 053 000 руб.',
+  price: '1 019 000 руб.',
   name: 'Leonico_800',
   catalog: Leonico800Images,
   description: [
@@ -481,7 +470,7 @@ const Leonico800TrailImages = [
  
  export const LEONICO800_TRAIL = {
    image: leonico800Trail1,
-   price: '1 096 000 руб.',
+   price: '1 049 000 руб.',
    name: 'Leonico_800_Trail',
    catalog: Leonico800TrailImages,
    description: [
@@ -512,7 +501,7 @@ const Leonico800TrailImages = [
  
  export const M752S = {
    image: moto752S1,
-   price: '1 060 000 руб.',
+   price: '959 000 руб.',
    name: '752S',
    catalog: moto752SImages,
    description: [
