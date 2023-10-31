@@ -1,11 +1,17 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import headerStyles from './header.module.scss';
 import Image from 'next/image';
 import logo from '@/public/images/benelli_icon.png';
 import Navigation from '../Navigation/Navigation';
 import burger from '@/public/images/burger.png';
+import LateralSlide from '../LateralSlide/LateralSlide';
 
 const Header = () => {
+  const [navOpen, setNavOpen] = useState(false);
+  const handleNavOpen = () => {
+    setNavOpen(!navOpen)
+  }
   return (
     <>
       <header className={headerStyles.header}>
@@ -36,10 +42,12 @@ const Header = () => {
         </div>
       </header>
       <Image
-          src={burger}
-          alt='burger'
-          className={headerStyles.header__mobileBurger}
-        />
+        src={burger}
+        alt='burger'
+        className={headerStyles.header__mobileBurger}
+        onClick={handleNavOpen}
+      />
+      {navOpen && <LateralSlide handleNavOpen={handleNavOpen}/>}
     </>
   );
 };
