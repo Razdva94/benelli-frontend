@@ -17,18 +17,21 @@ const LateralSlide: React.FC<any> = ({ handleNavOpen }) => {
         <Link
           className='lateral-slide__text lateral-slide__text_margin'
           href='/'
+          onClick={handleNavOpen}
         >
           Главная
         </Link>
         <Link
           className='lateral-slide__text lateral-slide__text_margin'
           href='/#motorcycles1'
+          onClick={handleNavOpen}
         >
           Мотоциклы
         </Link>
         <Link
           className='lateral-slide__text lateral-slide__text_margin'
           href='#footer'
+          onClick={handleNavOpen}
         >
           Контакты
         </Link>
