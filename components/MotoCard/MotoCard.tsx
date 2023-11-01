@@ -16,6 +16,7 @@ import OrderButton from './OrderButton/OrderButton';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 const MotoCard: React.FC<any> = ({ params }) => {
+  const url = 'http://localhost:3000/'
   const [motorcycles, setMotorcycles] = useState([]);
   useEffect(() => {
     const storedData = localStorage.getItem('motorcycle');
@@ -30,7 +31,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
     return moto.motoName === params.motorcycles.replace(/_/g, ' ');
   });
   if (motorcycle) {
-    const { catalog, description, motoName, motoPerformance, motoPrice } =
+    const { motoLinks, description, motoName, motoPerformance, motoPrice } =
       motorcycle;
     const formattedMotoName = motoName.replace(/_/g, ' ');
     const motoPerformanceArray: string[] = Object.values(
@@ -59,7 +60,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                 Мотоцикл <br />
                 {formattedMotoName}
               </h3>
-              {catalog && (
+              {motoLinks && (
                 <>
                   <Swiper
                     style={{
@@ -78,7 +79,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                     thumbs={{ swiper: thumbsSwiper }}
                     className={motoCardStyles.mySwiper2}
                   >
-                    {catalog.map(
+                    {motoLinks.map(
                       (
                         el: string | StaticImport,
                         i: React.Key | null | undefined,
@@ -97,7 +98,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                               >
                                 <Image
                                   className={motoCardStyles.motoCard__image}
-                                  src={el}
+                                  src={`${url}${el}`}
                                   alt='мото'
                                   height={1000}
                                   width={1000}
@@ -119,7 +120,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                     modules={[FreeMode, Navigation, Thumbs]}
                     className={motoCardStyles.mySwiper}
                   >
-                    {catalog.map(
+                    {motoLinks.map(
                       (
                         el: string | StaticImport,
                         i: React.Key | null | undefined,
@@ -138,7 +139,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                               >
                                 <Image
                                   className={motoCardStyles.motoCard__image}
-                                  src={el}
+                                  src={`${url}${el}`}
                                   alt='мотик'
                                   width={10000}
                                   height={10000}
@@ -176,7 +177,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
               })}
               <div className={motoCardStyles.motoCard__orderContainer}>
                 <p className={motoCardStyles.motoCard__price}>{motoPrice}</p>
-                {catalog && <OrderButton image={catalog[0]} name={formattedMotoName} />}
+                {motoLinks && <OrderButton image={motoLinks[0]} name={formattedMotoName} />}
               </div>
             </div>
           </div>

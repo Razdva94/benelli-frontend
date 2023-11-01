@@ -7,6 +7,7 @@ module.exports = {
       'encrypted-tbn0.gstatic.com',
       '4.downloader.disk.yandex.ru',
       'docs.google.com',
+       'localhost',
     ], // Здесь перечислите разрешенные хосты
   },
   env: {

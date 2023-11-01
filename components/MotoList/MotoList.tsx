@@ -33,7 +33,7 @@ const MotoList = () => {
               moto: {
                 motoName: string;
                 motoPrice: string | undefined;
-                mainImage: any;
+                motoLinks: any;
               },
               i: React.Key | null | undefined,
             ) => (
@@ -41,7 +41,7 @@ const MotoList = () => {
                 key={i}
                 name={moto.motoName.replaceAll('_', ' ')}
                 price={moto.motoPrice}
-                image={moto.mainImage}
+                image={moto.motoLinks[0]}
                 handleDeleteMoto={handleDeleteMoto}
               />
             ),

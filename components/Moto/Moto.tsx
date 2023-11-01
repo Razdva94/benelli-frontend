@@ -7,6 +7,7 @@ import cross from '@/public/images/gratis-png-iconos-de-la-computadora-cruzan-el
 import Link from 'next/link';
 
 const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
+  const url = 'http://localhost:3000/'
   const session: any = useSession();
   const formattedName = name.replace(/ /g, '_');
   return (
@@ -27,7 +28,7 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
           <Link href={`/${formattedName}`} style={{ textDecoration: 'none' }}>
             <div className={motoStyles.moto__imageContainer}>
               <Image
-                src={image}
+                src={`${url}${image}`}
                 alt='фото мотоцикла'
                 className={motoStyles.moto__image}
                 width={10000}

@@ -20,22 +20,29 @@ class Api {
       body: JSON.stringify(requestBody),
     });
   }
+  
+
+  postMotoPhotos(formData: any, motoName: string){
+    return this._request(`${this._url}/photos?motoName=${motoName}`, {
+      method: 'POST',
+      body: formData, 
+    });
+  }
+
 
   postMotorcycles(
     motoName: string,
     motoPrice: string,
-    mainImage: string,
-    catalog: Array<string>,
     description: Array<string>,
     motoPerformance: Object,
+    motoLinks: any,
   ) {
     const requestBody = {
       motoName,
       motoPrice,
-      mainImage,
-      catalog,
       description,
       motoPerformance,
+      motoLinks
     };
 
     return this._request(`${this._url}/motorcycles`, {

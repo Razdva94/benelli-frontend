@@ -12,6 +12,7 @@ const Popup: React.FC<orderProps> = ({
   onClose,
   open,
 }) => {
+  const url = 'http://localhost:3000/'
   const { values, handleChange } = useForm({
     motoName: '',
     name: '',
@@ -35,7 +36,7 @@ const Popup: React.FC<orderProps> = ({
         >
           <div className={popupStyles.popup__container}>
             <Image
-              src={image}
+              src={`${url}${image}`}
               alt='мотоцикл'
               className={popupStyles.popup__image}
               width={1000}

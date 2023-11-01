@@ -6,16 +6,20 @@ import api from '@/utils/api';
 import FormSubPopup from '../FormSubPopup/FormSubPopup';
 
 const AddMoto = () => {
+  const [files, setFiles] = useState([]);
+  const handleFileChange = (e: any) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFiles(selectedFiles as any);
+  };
   const [popupState, setPopupState] = useState(false);
   const [info, setInfo] = useState<any>([]);
   const { values, handleChange } = useForm();
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(values)
+    console.log(values);
     const {
       compressionRation,
       gazValue,
-      mainImage,
       mass,
       motoName,
       motoPrice,
@@ -30,16 +34,6 @@ const AddMoto = () => {
       paragraph8,
       paragraph9,
       paragraph10,
-      photo1,
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-      photo6,
-      photo7,
-      photo8,
-      photo9,
-      photo10,
       power,
       seatHeight,
       sizes,
@@ -72,51 +66,40 @@ const AddMoto = () => {
       (pharagraph) => typeof pharagraph === 'string' && pharagraph !== '',
     );
 
-    const catalog = [
-      photo1,
-      photo2,
-      photo3,
-      photo4,
-      photo5,
-      photo6,
-      photo7,
-      photo8,
-      photo9,
-      photo10,
-    ]
-      .filter((photo) => typeof photo === 'string')
-      .map((url) => {
-        return `https://docs.google.com/uc?id=${url.match(/\/d\/(.+?)\//)[1]}`;
-      });
-    const directUrlImage = `https://docs.google.com/uc?id=${
-      mainImage.match(/\/d\/(.+?)\//)[1]
-    }`;
     function openPopup() {
       setTimeout(() => setPopupState(false), 2000);
     }
 
-    api
-      .postMotorcycles(
-        motoName,
-        motoPrice,
-        directUrlImage,
-        catalog,
-        description,
-        motoPerformance,
-      )
-      .then(() => {
-        setInfo([`Информация о мотоцикле загружена на\u00a0сервер`, true]);
-        setPopupState(true);
-        openPopup();
-      })
-      .catch((err) => {
-        console.log(err);
-        setInfo(['Что-то пошло не так', false]);
-        setPopupState(true);
-        openPopup();
+    if (files.length > 0) {
+      const formData = new FormData();
+      files.forEach((file, index) => {
+        formData.append(`images`, file);
       });
-  };
 
+      api.postMotoPhotos(formData, motoName).then((res) => {
+        const motoLinks = res.map((moto:any) => moto.path)
+        api
+          .postMotorcycles(
+            motoName,
+            motoPrice,
+            description,
+            motoPerformance,
+            motoLinks,
+          )
+          .then(() => {
+            setInfo([`Информация о мотоцикле загружена на\u00a0сервер`, true]);
+            setPopupState(true);
+            openPopup();
+          })
+          .catch((err) => {
+            console.log(err);
+            setInfo(['Что-то пошло не так', false]);
+            setPopupState(true);
+            openPopup();
+          });
+      });
+    }
+  };
   return (
     <>
       <section className={addMotoStyles.addMoto}>
@@ -141,16 +124,6 @@ const AddMoto = () => {
               className={addMotoStyles.addMoto__input}
               name='motoPrice'
               type='text'
-              required
-            ></input>
-            <label className={addMotoStyles.addMoto__label}>
-              Фото обложки (ссылка){' '}
-            </label>
-            <input
-              onChange={handleChange}
-              className={addMotoStyles.addMoto__input}
-              name='mainImage'
-              type='url'
               required
             ></input>
             <label className={addMotoStyles.addMoto__label}>
@@ -343,105 +316,13 @@ const AddMoto = () => {
                 />
               </li>
             </ul>
-            <label className={addMotoStyles.addMoto__label}>
-              Фотографии мотоциклов (ссылки, 4 минимум){' '}
-            </label>
-            <ul className={addMotoStyles.addMoto__sublabelContainer}>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo1'
-                  placeholder='1 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo2'
-                  placeholder='2 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo3'
-                  placeholder='3 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo4'
-                  placeholder='4 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo5'
-                  placeholder='5 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo6'
-                  placeholder='6 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo7'
-                  placeholder='7 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo8'
-                  placeholder='8 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo9'
-                  placeholder='9 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='photo10'
-                  placeholder='10 фотография'
-                  type='url'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-            </ul>
+            <input
+              type='file'
+              accept='image/*'
+              onChange={(e) => handleFileChange(e)}
+              name='image'
+              multiple
+            />
             <button type='submit' className={addMotoStyles.addMoto__button}>
               Отправить форму
             </button>
