@@ -60,3 +60,24 @@
   height: 100%;
   object-fit: cover;
 }
+
+.swiper-zoom-container{
+  width: 700px;
+  height: 470px;
+}
+
+.swiper-zoom-container-mini{
+  width: 220px;
+  height: 150px;
+}
+
+@media screen and (max-width: 665px) {
+   .swiper-zoom-container{
+    width: 400px;
+    height: auto;
+  }
+  .swiper-zoom-container-mini{
+  width: 220px;
+  height: auto;
+} 
+}

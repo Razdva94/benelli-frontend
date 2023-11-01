@@ -3,3 +3,10 @@
   height: 88vh;
   background-color: var(--main-dark);
 }
+
+@media screen and (max-width: 768px) {
+  .videoComponent{
+    display: none;
+  }
+  
+}

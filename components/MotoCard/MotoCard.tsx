@@ -65,7 +65,6 @@ const MotoCard: React.FC<any> = ({ params }) => {
                   <Swiper
                     style={{
                       height: 'fit-content',
-                      width: '700px',
                       marginLeft: '0',
                       '--swiper-navigation-color': 'var(--main-orange)',
                       '--swiper-pagination-color': 'var(--main-orange)',
@@ -94,7 +93,6 @@ const MotoCard: React.FC<any> = ({ params }) => {
                             <SwiperSlide key={i}>
                               <div
                                 className='swiper-zoom-container'
-                                style={{ width: '700px', height: '470px' }}
                               >
                                 <Image
                                   className={motoCardStyles.motoCard__image}
@@ -134,8 +132,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                           >
                             <SwiperSlide key={i}>
                               <div
-                                className='swiper-zoom-container'
-                                style={{ width: '220px', height: '150px' }}
+                                className='swiper-zoom-container-mini'
                               >
                                 <Image
                                   className={motoCardStyles.motoCard__image}

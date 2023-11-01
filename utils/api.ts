@@ -30,6 +30,18 @@ class Api {
   }
 
 
+  deleteMotoPhotos(photoArr: any){
+    console.log(photoArr)
+    const requestBody = {
+     photoArr
+    };
+    return this._request(`${this._url}/photos`, {
+      headers: this._headers,
+      method:  'DELETE',
+      body: JSON.stringify(requestBody), 
+    });
+  }
+
   postMotorcycles(
     motoName: string,
     motoPrice: string,

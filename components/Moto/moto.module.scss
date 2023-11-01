@@ -21,11 +21,12 @@
   justify-content: center;
   overflow: hidden;
   transition: opacity .8s ease-in-out;
+  align-items: center;
 
   &__image {
-    height: auto;
+    height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
  
   &__name {
@@ -67,4 +68,15 @@
     z-index: 500;
     cursor: pointer
   }
+}
+
+@media screen and (max-width: 550px) {
+  .moto{
+    &__imageContainer{
+      width: 270px;
+      height: 200px;
+      align-items: center;
+    }
+  }
+  
 }

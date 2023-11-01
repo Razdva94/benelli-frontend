@@ -16,7 +16,6 @@ const AddMoto = () => {
   const { values, handleChange } = useForm();
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(values);
     const {
       compressionRation,
       gazValue,

@@ -15,6 +15,7 @@
   &__linkContainer {
     display: flex;
     flex-direction: row;
+    align-self: start;
   }
   &__link {
     all: unset;
@@ -46,7 +47,7 @@
   &__text {
     margin-top: 0;
     line-height: 1.5;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   &__title {
     margin-bottom: 2rem;
@@ -87,8 +88,49 @@
     margin-top: 1.5rem;
     justify-content: space-between;
   }
-  &__price{
+  &__price {
     font-size: 1.8rem;
     font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .motoCard {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    &__wrapper {
+      flex-direction: column;
+      max-width: 700px;
+      width: 100%;
+    }
+    &__catalogContainer {
+      max-width: 700px;
+      width: 100%;
+      height: fit-content;
+      background-color: white;
+      margin-right: 30px;
+      margin-bottom: 20px;
+      float: left;
+    }
+    &__container {
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .motoCard {
+    &__title {
+      font-size: 1rem;
+    }
+    &__miniTitle {
+     width: 25vw;
+    }
+    &__price {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
   }
 }

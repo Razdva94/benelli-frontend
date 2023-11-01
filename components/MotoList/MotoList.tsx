@@ -7,14 +7,18 @@ import api from '@/utils/api';
 const MotoList = () => {
   const [motorcycle, setMotorcycle] = useState([]);
   const handleDeleteMoto = (motoName: string) => {
-    api.deleteMotorcycle(motoName).then(() => {
+    api.deleteMotorcycle(motoName)
+    .then((res) => {
       const newArrMoto = motorcycle.filter((moto: any) => {
         return moto.motoName !== motoName;
       });
-      console.log(newArrMoto);
       setMotorcycle(newArrMoto);
       localStorage.setItem('motorcycle', JSON.stringify(newArrMoto));
-    });
+      api.deleteMotoPhotos(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   };
 
   useEffect(() => {
