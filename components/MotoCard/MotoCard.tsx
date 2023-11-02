@@ -98,8 +98,8 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
                                   alt='мото'
-                                  height={1000}
-                                  width={1000}
+                                  height={10000}
+                                  width={10000}
                                   quality={100}
                                 />
                               </div>
