@@ -11,7 +11,7 @@ module.exports = {
     ], // Здесь перечислите разрешенные хосты
   },
   env: {
-    NEXTAUTH_URL: 'http://localhost:3001', // Укажите правильный адрес
+    NEXTAUTH_URL: 'https://benellispb.ru', // Укажите правильный адрес
   },
 };
 
