@@ -31,8 +31,8 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
                 src={`${url}${image}`}
                 alt='фото мотоцикла'
                 className={motoStyles.moto__image}
-                width={10000}
-                height={10000}
+                width={3000}
+                height={2000}
               />
             </div>
           </Link>

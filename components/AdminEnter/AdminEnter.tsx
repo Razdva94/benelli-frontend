@@ -26,7 +26,7 @@ const AdminEnter = () => {
       setInfo([`Вы успешно аутентифицировались`, true]);
       setPopupState(true);
       openPopup();
-      router.push('/admin-panel-add');
+      router.push('/admin-add-panel');
     } else {
       console.log(res);
       setInfo(['Что-то пошло не так', false]);
