@@ -16,7 +16,7 @@ import OrderButton from './OrderButton/OrderButton';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 const MotoCard: React.FC<any> = ({ params }) => {
-  const url = 'http://localhost:3000/'
+  const url = process.env.NEXT_PUBLIC_URL_PICTURES
   const [motorcycles, setMotorcycles] = useState([]);
   useEffect(() => {
     const storedData = localStorage.getItem('motorcycle');

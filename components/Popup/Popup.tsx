@@ -13,7 +13,7 @@ const Popup: React.FC<orderProps> = ({
   open,
 }) => {
   console.log(image)
-  const url = 'http://localhost:3000/'
+  const url = process.env.NEXT_PUBLIC_URL_PICTURES
   const { values, handleChange } = useForm({
     motoName: '',
     name: '',

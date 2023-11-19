@@ -7,7 +7,7 @@ import cross from '@/public/images/gratis-png-iconos-de-la-computadora-cruzan-el
 import Link from 'next/link';
 
 const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
-  const url = 'http://localhost:3000/'
+  const url = process.env.NEXT_PUBLIC_URL_PICTURES
   const session: any = useSession();
   const formattedName = name.replace(/ /g, '_');
   return (
