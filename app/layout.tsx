@@ -1,3 +1,4 @@
+'use client';
 import { Metadata } from 'next';
 import '@/vendor/fonts.css';
 import '@/vendor/normalize.css';
@@ -6,6 +7,7 @@ import { SessionProviders } from '@/components/SessionProviders/SessionProviders
 import Header from '@/components/Header/Header';
 import mainStyles from './main.module.scss';
 import Footer from '@/components/Footer/Footer';
+import PopupContextProvider from '@/contexts/PopupContextProvider';
 
 export const metadata: Metadata = {
   title: 'Benelli Spb',
@@ -19,6 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
+      <PopupContextProvider>
         <SessionProviders>
           <head>
             <meta name='yandex-verification' content='fe483d98bcc96f41' />
@@ -29,6 +32,7 @@ export default function RootLayout({
             <Footer />
           </body>
         </SessionProviders>
+      </PopupContextProvider>
     </html>
   );
 }

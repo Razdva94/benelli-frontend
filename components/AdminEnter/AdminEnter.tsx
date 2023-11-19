@@ -16,6 +16,8 @@ const AdminEnter = () => {
   const router = useRouter();
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
+    setPopupState(true);
+    setInfo([`Загрузка информации на сервер`, 'loading']);
     const formData = new FormData(event.target as HTMLFormElement);
     const res = await signIn('credentials', {
       login: formData.get('login'),
@@ -23,14 +25,12 @@ const AdminEnter = () => {
       redirect: false,
     });
     if (res && !res.error) {
-      setInfo([`Вы успешно аутентифицировались`, true]);
-      setPopupState(true);
+      setInfo([`Вы успешно аутентифицировались`, 'afferm']);
       openPopup();
-      router.push('/admin-add-panel');
+      router.push('/admin-panel-add');
     } else {
       console.log(res);
-      setInfo(['Что-то пошло не так', false]);
-      setPopupState(true);
+      setInfo(['Что-то пошло не так', 'regect']);
       openPopup();
     }
   };

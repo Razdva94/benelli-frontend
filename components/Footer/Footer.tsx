@@ -1,59 +1,45 @@
 import React from 'react';
-import Image from 'next/image';
-import footerStyles from './footer.module.scss';
+import './footer.css';
 import logo from '@/public/images/benelli_icon.png';
-import gerb from '@/public/images/gerb_sankt-peterburga_Abali.ru.svg';
-
+import logoArsenal from '@/public/images/Frame 18.svg';
 import telegram from '@/public/images/telega.png';
-import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className={footerStyles.footer} id='footer'>
-      <div className={footerStyles.footer__container}>
-        <div className={footerStyles.footer__imageContainer}>
-          <Image
-            src={logo}
-            alt='лого'
-            className={footerStyles.footer__logo}
-            width={200}
-          />
+    <footer className='footer' id='footer'>
+      <div className='footer__container'>
+        <div className='footer__imageContainer'>
+          <Image src={logo} alt='лого' className='footer__logo' />
         </div>
-        <div className={footerStyles.footer__textContainer}>
-          <p
-            className={footerStyles.footer__text}
-            style={{ textTransform: 'uppercase' }}
-          >
+        <div className='footer__textContainer'>
+          <p className='footer__text' style={{ textTransform: 'uppercase' }}>
             Мотоцентр Арсенал
           </p>
-          <p className={footerStyles.footer__text}>Официальный дилер BENELLI</p>
-          <p className={footerStyles.footer__text}>в Санкт-Петербурге</p>
+          <p className='footer__text'>Официальный дилер BENELLI</p>
+          <p className='footer__text' style={{marginBottom: '0'}}>в Санкт-Петербурге</p>
         </div>
-        <div className={footerStyles.footer__textContainer}>
-          <p className={footerStyles.footer__text}>
-            Пискаревский проспект 144АК
-          </p>
-          <p className={footerStyles.footer__text}>+7(812) 456-1903</p>
-          <Link
+        <div className='footer__textContainer'>
+          <p className='footer__text'>Пискаревский проспект 144АК</p>
+          <p className='footer__text'>+7(812)456-19-03</p>
+          <a
             href='https://t.me/+J-rVqZHkc-BjOGNi'
-            className={footerStyles.footer__link}
+            className='footer__link'
             target='_blank'
+            rel='noreferrer'
           >
             Телеграм
-            <Image
-              src={telegram}
-              alt='телега'
-              className={footerStyles.footer__icon}
-             
-            />
-          </Link>
+            <Image src={telegram} alt='телега' className='footer__icon' />
+          </a>
         </div>
-        <Image
-          src={gerb}
-          alt='герб'
-          className={footerStyles.footer__logo}
-          width={100}
-        />
+        <div className='footer__imageContainer'>
+          <Image
+            src={logoArsenal}
+            alt='герб'
+            className='footer__logoArsenal'
+            style={{ width: '100px' }}
+          />
+        </div>
       </div>
     </footer>
   );

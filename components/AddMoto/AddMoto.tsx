@@ -1,21 +1,37 @@
-'use client';
+'use client'
 import React, { useState } from 'react';
-import addMotoStyles from './addMoto.module.scss';
-import useForm from '@/hooks/useForm';
-import api from '@/utils/api';
+import './addMoto.css';
+import useForm from '../../hooks/useForm';
+import api from '../../utils/api';
 import FormSubPopup from '../FormSubPopup/FormSubPopup';
+import {
+  PERFORMANCE_NAME,
+  PERFORMANCE,
+  PARAGRAPHS,
+  PARAGRAPHS_NAME,
+  PARAGRAPHS_CHANGED,
+} from '../../utils/constants';
 
 const AddMoto = () => {
-  const [files, setFiles] = useState([]);
-  const handleFileChange = (e: any) => {
-    const selectedFiles = Array.from(e.target.files);
-    setFiles(selectedFiles as any);
-  };
   const [popupState, setPopupState] = useState(false);
   const [info, setInfo] = useState<any>([]);
   const { values, handleChange } = useForm();
-  const handleSubmit = (e: any) => {
+  function openPopup() {
+    setTimeout(() => setPopupState(false), 2000);
+  }
+
+  //  добавлениe мотоцикла
+  const [files, setFiles] = useState([]);
+
+  const handleFileLoad = (e:any) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFiles(selectedFiles as any);
+  };
+
+  const handleSubmit = (e:any) => {
     e.preventDefault();
+    setInfo([`Загрузка информации на сервер`, 'loading']);
+    setPopupState(true);
     const {
       compressionRation,
       gazValue,
@@ -65,264 +81,295 @@ const AddMoto = () => {
       (pharagraph) => typeof pharagraph === 'string' && pharagraph !== '',
     );
 
-    function openPopup() {
-      setTimeout(() => setPopupState(false), 2000);
-    }
-
     if (files.length > 0) {
       const formData = new FormData();
       files.forEach((file, index) => {
         formData.append(`images`, file);
       });
 
-      api.postMotoPhotos(formData, motoName).then((res) => {
-        const motoLinks = res.map((moto:any) => moto.path)
-        api
-          .postMotorcycles(
-            motoName,
-            motoPrice,
-            description,
-            motoPerformance,
-            motoLinks,
-          )
-          .then(() => {
-            setInfo([`Информация о мотоцикле загружена на\u00a0сервер`, true]);
-            setPopupState(true);
-            openPopup();
-          })
-          .catch((err) => {
-            console.log(err);
-            setInfo(['Что-то пошло не так', false]);
-            setPopupState(true);
-            openPopup();
-          });
-      });
+      api
+        .postMotoPhotos(formData, motoName)
+        .then((res) => {
+          const motoLinks = res.map((moto:any) => moto.path);
+          api
+            .postMotorcycles(
+              motoName,
+              motoPrice,
+              description,
+              motoPerformance,
+              motoLinks,
+            )
+            .then(() => {
+              api
+                .getMotorcycles()
+                .then((res) => {
+                  localStorage.setItem('motorcycle', JSON.stringify(res));
+                  setInfo([
+                    `Информация о мотоцикле загружена на\u00a0сервер`,
+                    'afferm',
+                  ]);
+                  openPopup();
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            })
+            .catch((err) => {
+              console.log(err);
+              setInfo(['Что-то пошло не так', 'regect']);
+              openPopup();
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+          setInfo(['Не установлена связь с сервером', 'regect']);
+          openPopup();
+        });
+    } else {
+      setInfo(['Не выбраны фотографии', 'regect']);
+      openPopup();
+    }
+  };
+
+  // сабмит формы изменения
+  const [changedFiles, setChangedFiles] = useState([]);
+
+  const handleChangedFileLoad = (e:any) => {
+    const selectedFiles = Array.from(e.target.files);
+    setChangedFiles(selectedFiles as any);
+  };
+
+  const handleSubmitChanged = (e:any) => {
+    e.preventDefault();
+    setInfo([`Загрузка информации на сервер`, 'loading']);
+    setPopupState(true);
+    const {
+      paragraphChanged1,
+      paragraphChanged2,
+      paragraphChanged3,
+      paragraphChanged4,
+      paragraphChanged5,
+      paragraphChanged6,
+      paragraphChanged7,
+      paragraphChanged8,
+      paragraphChanged9,
+      paragraphChanged10,
+      motoNameChanged,
+      motoPriceChanged,
+    } = values;
+
+    const description = [
+      paragraphChanged1,
+      paragraphChanged2,
+      paragraphChanged3,
+      paragraphChanged4,
+      paragraphChanged5,
+      paragraphChanged6,
+      paragraphChanged7,
+      paragraphChanged8,
+      paragraphChanged9,
+      paragraphChanged10,
+    ].filter(
+      (pharagraph) => typeof pharagraph === 'string' && pharagraph !== '',
+    );
+    const motorcycles = JSON.parse(localStorage.getItem('motorcycle') as any);
+    const formData = new FormData();
+    changedFiles.forEach((file, index) => {
+      formData.append(`images`, file);
+    });
+
+    const motorcycle = motorcycles.find((moto: any) => {
+      return moto.motoName === motoNameChanged;
+    });
+
+    if (changedFiles.length > 0) {
+      api
+        .deleteMotoPhotos(motorcycle.motoLinks)
+        .then(() => {
+          api
+            .postMotoPhotos(formData, motoNameChanged)
+            .then((res) => {
+              const motoLinks = res.map((moto: any) => moto.path);
+              api
+                .changeMotoInfo(
+                  motoNameChanged,
+                  motoPriceChanged,
+                  description,
+                  motoLinks,
+                )
+                .then(() => {
+                  api
+                    .getMotorcycles()
+                    .then((res) => {
+                      localStorage.setItem('motorcycle', JSON.stringify(res));
+                      setInfo([`Информация о мотоцикле изменена`, 'afferm']);
+                      openPopup();
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                })
+                .catch((err: any) => {
+                  console.log(err);
+                  setInfo(['Что-то пошло не так', 'regect']);
+                  openPopup();
+                });
+            })
+            .catch((err) => {
+              console.log(err);
+              setInfo(['Что-то пошло не так', 'regect']);
+              openPopup();
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+          setInfo(['Что-то пошло не так', 'regect']);
+          openPopup();
+        });
+    } else {
+      api
+        .changeMotoInfo(motoNameChanged, motoPriceChanged, description)
+        .then(() => {
+          api
+            .getMotorcycles()
+            .then((res) => {
+              localStorage.setItem('motorcycle', JSON.stringify(res));
+              setInfo([`Информация о мотоцикле изменена`, 'afferm']);
+              openPopup();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err: any) => {
+          console.log(err);
+          if (err.message) {
+            setInfo([`${err.message}`, 'regect']);
+          } else {
+            setInfo(['Что-то пошло не так', 'regect']);
+          }
+          openPopup();
+        });
     }
   };
   return (
     <>
-      <section className={addMotoStyles.addMoto}>
-        <div className={addMotoStyles.addMoto__container}>
-          <form onSubmit={handleSubmit} className={addMotoStyles.addMoto__form}>
-            <h3 className={addMotoStyles.addMoto__title}>Данные мотоцикла</h3>
-            <label className={addMotoStyles.addMoto__label}>
+      <section className='addMoto'>
+        <div className='addMoto__container'>
+          <form onSubmit={handleSubmit} className='addMoto__form'>
+            <h3 className='addMoto__title'>Добавление мотоцикла</h3>
+            <label className='addMoto__label'>
               Название мотоцикла (английский язык)
             </label>
             <input
               onChange={handleChange}
-              className={addMotoStyles.addMoto__input}
+              className='addMoto__input'
               name='motoName'
               type='text'
               required
             ></input>
-            <label className={addMotoStyles.addMoto__label}>
-              Цена мотоцикла
-            </label>
+            <label className='addMoto__label'>Цена мотоцикла</label>
             <input
               onChange={handleChange}
-              className={addMotoStyles.addMoto__input}
+              className='addMoto__input'
               name='motoPrice'
               type='text'
               required
             ></input>
-            <label className={addMotoStyles.addMoto__label}>
+            <label className='addMoto__label'>
               Характеристики мотоцикла (число без наименования)
             </label>
-            <ul className={addMotoStyles.addMoto__sublabelContainer}>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='mass'
-                  placeholder='Снаряженная масса, кг'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='sizes'
-                  placeholder='Д/Ш/В, мм'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='wheel'
-                  placeholder='Колесная база, мм'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='seatHeight'
-                  placeholder='Высота сиденья, мм'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='gazValue'
-                  placeholder='Объем бензобака, л'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='operatedValue'
-                  placeholder='Рабочий объем, см³'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='compressionRation'
-                  placeholder='Степень сжатия'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='power'
-                  placeholder='Мощность, лс при об/мин'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='torque'
-                  placeholder='Крутящий момент, Нм при об/мин'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                  required
-                />
-              </li>
+            <ul className='addMoto__sublabelContainer'>
+              {PERFORMANCE.map((name, i) => {
+                return (
+                  <li key={i}>
+                    <input
+                      onChange={handleChange}
+                      name={name}
+                      placeholder={PERFORMANCE_NAME[i]}
+                      type='text'
+                      className='addMoto__sublabel'
+                      required
+                    />
+                  </li>
+                );
+              })}
             </ul>
-            <label className={addMotoStyles.addMoto__label}>
+            <label className='addMoto__label'>
               Описание (втавлять по абзацу в каждую форму)
             </label>
-            <ul className={addMotoStyles.addMoto__sublabelContainer}>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph1'
-                  placeholder='1 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph2'
-                  placeholder='2 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph3'
-                  placeholder='3 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph4'
-                  placeholder='4 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph5'
-                  placeholder='5 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph6'
-                  placeholder='6 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph7'
-                  placeholder='7 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph8'
-                  placeholder='8 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph9'
-                  placeholder='9 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
-              <li>
-                <input
-                  onChange={handleChange}
-                  name='paragraph10'
-                  placeholder='10 абзац'
-                  type='text'
-                  className={addMotoStyles.addMoto__sublabel}
-                />
-              </li>
+            <ul className='addMoto__sublabelContainer'>
+              {PARAGRAPHS.map((paragraph, i) => {
+                return (
+                  <li key={i}>
+                    <input
+                      onChange={handleChange}
+                      name={paragraph}
+                      placeholder={PARAGRAPHS_NAME[i]}
+                      type='text'
+                      className='addMoto__sublabel'
+                    />
+                  </li>
+                );
+              })}
             </ul>
             <input
               type='file'
               accept='image/*'
-              onChange={(e) => handleFileChange(e)}
+              onChange={(e) => handleFileLoad(e)}
               name='image'
               multiple
             />
-            <button type='submit' className={addMotoStyles.addMoto__button}>
+            <button type='submit' className='addMoto__button'>
+              Отправить форму
+            </button>
+          </form>
+          {/* Изменение мотоцикла */}
+          <form className='addMoto__form' onSubmit={handleSubmitChanged}>
+            <h3 className='addMoto__title'>Изменение мотоцикла</h3>
+            <label className='addMoto__label'>
+              Название мотоцикла (английский язык)
+            </label>
+            <input
+              onChange={handleChange}
+              className='addMoto__input'
+              name='motoNameChanged'
+              type='text'
+              required
+            ></input>
+            <label className='addMoto__label'>Цена мотоцикла</label>
+            <input
+              onChange={handleChange}
+              className='addMoto__input'
+              name='motoPriceChanged'
+              type='text'
+            ></input>
+            <label className='addMoto__label'>
+              Описание (втавлять по абзацу в каждую форму)
+            </label>
+            <ul className='addMoto__sublabelContainer'>
+              {PARAGRAPHS_CHANGED.map((paragraph, i) => {
+                return (
+                  <li key={i}>
+                    <input
+                      onChange={handleChange}
+                      name={paragraph}
+                      placeholder={PARAGRAPHS_NAME[i]}
+                      type='text'
+                      className='addMoto__sublabel'
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+            <input
+              type='file'
+              accept='image/*'
+              onChange={(e) => handleChangedFileLoad(e)}
+              name='image'
+              multiple
+            />
+            <button type='submit' className='addMoto__button'>
               Отправить форму
             </button>
           </form>

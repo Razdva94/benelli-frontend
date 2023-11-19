@@ -9,14 +9,13 @@ import 'swiper/css/zoom';
 import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
-import Image from 'next/image';
 import './style.css';
 import { PERFORMANCE_NAME } from '@/utils/constants';
 import OrderButton from './OrderButton/OrderButton';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 const MotoCard: React.FC<any> = ({ params }) => {
-  const url = process.env.NEXT_PUBLIC_URL_PICTURES
+  const url = process.env.NEXT_PUBLIC_URL_PICTURES;
   const [motorcycles, setMotorcycles] = useState([]);
   useEffect(() => {
     const storedData = localStorage.getItem('motorcycle');
@@ -91,17 +90,11 @@ const MotoCard: React.FC<any> = ({ params }) => {
                             }
                           >
                             <SwiperSlide key={i}>
-                              <div
-                                className='swiper-zoom-container'
-                              >
+                              <div className='swiper-zoom-container'>
                                 <img
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
                                   alt='мото'
-                                  // height={3000}
-                                  // width={2000}
-                                  // quality={100}
-                                  // loading='eager'
                                 />
                               </div>
                             </SwiperSlide>
@@ -132,9 +125,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                             }
                           >
                             <SwiperSlide key={i}>
-                              <div
-                                className='swiper-zoom-container-mini'
-                              >
+                              <div className='swiper-zoom-container-mini'>
                                 <img
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
@@ -176,7 +167,9 @@ const MotoCard: React.FC<any> = ({ params }) => {
               })}
               <div className={motoCardStyles.motoCard__orderContainer}>
                 <p className={motoCardStyles.motoCard__price}>{motoPrice}</p>
-                {motoLinks && <OrderButton image={motoLinks[0]} name={formattedMotoName} />}
+                {motoLinks && (
+                  <OrderButton image={motoLinks[0]} name={formattedMotoName} />
+                )}
               </div>
             </div>
           </div>

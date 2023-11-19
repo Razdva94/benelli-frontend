@@ -37,7 +37,7 @@ function Navigation() {
             style={{ marginLeft: 'auto' }}
             href='/admin-panel-add'
           >
-            Добавить мотоциклы
+            Добавить/Изменить мотоциклы
           </Link>
           <Link
             className={navigationStyles.navigation__link}

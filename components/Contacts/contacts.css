@@ -1,0 +1,27 @@
+
+.contacts{
+  display: flex;
+}
+.contacts__building{
+  width: 100%;
+  height: auto;
+}
+
+.contacts__building-mobile{
+  width: 100%;
+  height: auto;
+  display: none;
+}
+
+@media screen and (max-width: 780px){
+  .contacts__building{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 780px){
+  .contacts__building-mobile{
+    display: inline-block;
+  }
+}

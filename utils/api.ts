@@ -30,6 +30,18 @@ class Api {
   }
 
 
+  changeMotoInfo(motoName: any, motoPrice: any, description: any, motoLinks?: any) {
+    const requestBody: { motoName: any; motoPrice?: any; description?: any; motoLinks?: any } = { motoName };
+    if (motoPrice) requestBody.motoPrice  = motoPrice ;
+    if (description.length > 0) requestBody.description = description;
+    if (motoLinks?.length > 0) requestBody.motoLinks = motoLinks;
+
+    return this._request(`${this._url}/motorcycles`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify(requestBody),
+    });
+  }
   deleteMotoPhotos(photoArr: any){
     console.log(photoArr)
     const requestBody = {

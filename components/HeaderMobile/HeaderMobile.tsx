@@ -1,7 +1,7 @@
-import headerStyles from './header.module.scss';
+import headerStyles from '../Header/header.module.scss';
 import Image from 'next/image';
 import logo from '@/public/images/benelli_icon.png';
-import BenelliMobile from '@/public/images/benelli__mobile.jpg';
+import BenelliMobile from '@/public/images/mobile__moto.jpg';
 
 const HeaderMobile = () => {
   return (
