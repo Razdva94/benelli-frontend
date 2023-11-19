@@ -97,7 +97,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://benellispb.ru/apiS',
+  baseUrl: process.env.NEXT_PUBLIC_URL_BASE,
   headers: {
     'Content-Type': 'application/json',
   },

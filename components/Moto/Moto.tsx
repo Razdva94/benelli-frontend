@@ -33,6 +33,7 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
                 className={motoStyles.moto__image}
                 width={3000}
                 height={2000}
+                loading='eager'
               />
             </div>
           </Link>

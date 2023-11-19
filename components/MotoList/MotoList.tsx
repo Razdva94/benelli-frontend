@@ -43,7 +43,7 @@ const MotoList = () => {
             ) => (
               <Moto
                 key={i}
-                name={moto.motoName.replaceAll('_', ' ')}
+                name={moto.motoName}
                 price={moto.motoPrice}
                 image={moto.motoLinks[0]}
                 handleDeleteMoto={handleDeleteMoto}

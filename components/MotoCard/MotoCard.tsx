@@ -27,7 +27,6 @@ const MotoCard: React.FC<any> = ({ params }) => {
     }
   }, []);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
-  console.log('sdfsfd', thumbsSwiper)
   const motorcycle: any = motorcycles.find((moto: any) => {
     return moto.motoName === params.motorcycles.replace(/_/g, ' ');
   });
@@ -99,9 +98,10 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
                                   alt='мото'
-                                  height={10000}
-                                  width={10000}
+                                  height={3000}
+                                  width={2000}
                                   quality={100}
+                                  loading='eager'
                                 />
                               </div>
                             </SwiperSlide>
@@ -142,6 +142,7 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   width={3000}
                                   height={2000}
                                   quality={100}
+                                  loading='eager'
                                 />
                               </div>
                             </SwiperSlide>
