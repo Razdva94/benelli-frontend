@@ -94,14 +94,14 @@ const MotoCard: React.FC<any> = ({ params }) => {
                               <div
                                 className='swiper-zoom-container'
                               >
-                                <Image
+                                <img
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
                                   alt='мото'
-                                  height={3000}
-                                  width={2000}
-                                  quality={100}
-                                  loading='eager'
+                                  // height={3000}
+                                  // width={2000}
+                                  // quality={100}
+                                  // loading='eager'
                                 />
                               </div>
                             </SwiperSlide>
@@ -135,14 +135,14 @@ const MotoCard: React.FC<any> = ({ params }) => {
                               <div
                                 className='swiper-zoom-container-mini'
                               >
-                                <Image
+                                <img
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
                                   alt='мотик'
-                                  width={3000}
-                                  height={2000}
-                                  quality={100}
-                                  loading='eager'
+                                  // width={3000}
+                                  // height={2000}
+                                  // quality={100}
+                                  // loading='eager'
                                 />
                               </div>
                             </SwiperSlide>

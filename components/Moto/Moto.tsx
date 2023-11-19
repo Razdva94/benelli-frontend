@@ -20,20 +20,20 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
               alt='крест'
               className={motoStyles.moto__cross}
               onClick={() => handleDeleteMoto(name)}
-              width={30}
-              height={30}
+              // width={30}
+              // height={30}
               style={{ backgroundColor: 'red' }}
             />
           )}
           <Link href={`/${formattedName}`} style={{ textDecoration: 'none' }}>
             <div className={motoStyles.moto__imageContainer}>
-              <Image
+              <img
                 src={`${url}${image}`}
                 alt='фото мотоцикла'
                 className={motoStyles.moto__image}
-                width={3000}
-                height={2000}
-                loading='eager'
+                // width={3000}
+                // height={2000}
+                // loading='eager'
               />
             </div>
           </Link>
