@@ -1,5 +1,5 @@
 import React from 'react';
-import './BurgerIcon.css'
+import './burgerIcon.css'
 
 const BurgerIcon:React.FC<any> = ({handleNavOpen, navOpen}) => {
   
