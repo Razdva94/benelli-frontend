@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Zoom, Thumbs, FreeMode } from 'swiper/modules';
+import { Navigation, Zoom, Thumbs, FreeMode } from 'swiper';
 import motoCardStyles from './motoCard.module.scss';
 import Link from 'next/link';
 import 'swiper/css';
