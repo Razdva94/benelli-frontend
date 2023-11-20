@@ -94,6 +94,14 @@ class Api {
     });
   }
 
+  getMotorcycle(motoName:string){
+    return this._request(`${this._url}/motorcycle`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify(motoName),
+    });
+  }
+
 
   _checkResponse(res: Response) {
     if (res.ok) {

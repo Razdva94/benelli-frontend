@@ -1,7 +1,7 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-const { Swiper, SwiperSlide } = require('swiper/react');
-const { Navigation, Zoom, Thumbs, FreeMode } = require('swiper/modules');
+'use client'
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Zoom, Thumbs, FreeMode } from 'swiper/modules';
 import motoCardStyles from './motoCard.module.scss';
 import Link from 'next/link';
 import 'swiper/css';
@@ -14,21 +14,9 @@ import { PERFORMANCE_NAME } from '@/utils/constants';
 import OrderButton from './OrderButton/OrderButton';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-const MotoCard: React.FC<any> = ({ params }) => {
+const MotoCard: React.FC<any> = ({ motorcycle }) => {
   const url = process.env.NEXT_PUBLIC_URL_PICTURES;
-  const [motorcycles, setMotorcycles] = useState([]);
-  useEffect(() => {
-    const storedData = localStorage.getItem('motorcycle');
-
-    if (storedData) {
-      const motorcycleData = JSON.parse(storedData);
-      setMotorcycles(motorcycleData);
-    }
-  }, []);
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
-  const motorcycle: any = motorcycles.find((moto: any) => {
-    return moto.motoName === params.motorcycles.replace(/_/g, ' ');
-  });
   if (motorcycle) {
     const { motoLinks, description, motoName, motoPerformance, motoPrice } =
       motorcycle;
@@ -130,10 +118,6 @@ const MotoCard: React.FC<any> = ({ params }) => {
                                   className={motoCardStyles.motoCard__image}
                                   src={`${url}${el}`}
                                   alt='мотик'
-                                  // width={3000}
-                                  // height={2000}
-                                  // quality={100}
-                                  // loading='eager'
                                 />
                               </div>
                             </SwiperSlide>
