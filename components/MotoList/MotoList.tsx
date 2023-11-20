@@ -44,7 +44,7 @@ const MotoList = () => {
   return (
     <section className='motoList'>
       <div className='motoList__container'>
-        <h2 className='motoList__title' id='motorcycles'>
+        <h2 className='motoList__title' id='motorcycles1'>
           Мотоциклы
         </h2>
         <h3 className='motoList__subtitle'>Benelli</h3>

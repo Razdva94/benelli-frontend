@@ -67,9 +67,6 @@ import Image from 'next/image';
 
 const Header = () => {
   const popupContext = useContext(PopupContext);
-  useEffect(() => {
-    console.log('Popup is opened:', popupContext);
-  }, [popupContext]);
   console.log(popupContext);
   const [navOpen, setNavOpen] = useState(false);
   const handleNavOpen = async () => {
