@@ -97,6 +97,7 @@ import api from '../../utils/api';
 import './motoList.css';
 
 const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
+  console.log(initialMotorcycles);
   const [motorcycles, setMotorcycles] = useState(initialMotorcycles);
   const handleDeleteMoto = (motoName: any) => {
     api

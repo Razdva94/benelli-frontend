@@ -91,6 +91,7 @@ class Api {
     return this._request(`${this._url}/motorcycles`, {
       method: 'GET',
       headers: this._headers,
+      cache: 'no-store',
     });
   }
 
@@ -99,6 +100,7 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify(motoName),
+      cache: 'no-store',
     });
   }
 
