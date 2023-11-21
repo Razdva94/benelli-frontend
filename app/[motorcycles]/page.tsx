@@ -1,52 +1,25 @@
 import React from 'react';
 import MotoCard from '@/components/MotoCard/MotoCard';
 import api from '@/utils/api';
+import { notFound } from 'next/navigation';
 
 async function getMotorcycle(params: any) {
-  const motorcycles = await api.getMotorcycle(params)
-  return motorcycles
+  const motorcycles = await api.getMotorcycle(params);
+  if (!motorcycles) return undefined
+  return motorcycles;
 }
+
 
 const page = async ({ params }: { params: { motorcycles: string } }) => {
   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
-  return (
-    <MotoCard motorcycle={motorcycle}
-    />
-  );
+  if (motorcycle) {
+    console.log('1', motorcycle)
+    return <MotoCard motorcycle={motorcycle} />;
+  } else {
+    console.log('error')
+    notFound();
+  }
 };
 
 export default page;
-
-// import React from 'react';
-// import MotoCard from '@/components/MotoCard/MotoCard';
-// import api from '@/utils/api';
-// import { ServerResponse } from 'http';
-
-// export default function MotoPage({ motorcycle }: any) {
-//   return <MotoCard motorcycle={motorcycle} />;
-// }
-
-// export async function getServerSideProps({
-//   params,
-// }: {
-//   params: { motorcycles: string };
-// }) {
-//   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
-
-//   try {
-//     const motorcycle = await api.getMotorcycle(motorcycleNameWithSpaces);
-
-//     return {
-//       props: {
-//         motorcycle,
-//       },
-//       cache: ServerResponse.Cache.NoCache,
-//     };
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//     return {
-//       notFound: true,
-//     };
-//   }
-// }

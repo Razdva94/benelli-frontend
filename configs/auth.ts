@@ -11,7 +11,6 @@ export const authConfig: AuthOptions = {
        async authorize(credentials) {
         if (!credentials?.login || !credentials.password) return null;
         const { login, password } = credentials;
-        console.log(login, password)
         if(login === process.env.NEXT_PUBLIC_LOGIN && password === process.env.NEXT_PUBLIC_PASS) {
           const user = {
             id: '1',

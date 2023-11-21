@@ -34,3 +34,16 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+// const page = async ({ params }: { params: { motorcycles: string } }) => {
+//   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
+//   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
+//   if (motorcycle) {
+//     return <MotoCard motorcycle={motorcycle} />;
+//   } else {
+//     notFound();
+//   }
+// };
+
+// export default page;

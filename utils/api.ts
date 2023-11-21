@@ -43,7 +43,6 @@ class Api {
     });
   }
   deleteMotoPhotos(photoArr: any){
-    console.log(photoArr)
     const requestBody = {
      photoArr
     };
@@ -109,7 +108,6 @@ class Api {
     if (res.ok) {
       return res.json();
     }
-    console.log(res);
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
