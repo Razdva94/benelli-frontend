@@ -1,17 +1,14 @@
 'use client';
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState } from 'react';
 import headerStyles from './header.module.scss';
 import logo from '@/public/images/benelli_icon.png';
 import Navigation from '../Navigation/Navigation';
 import LateralSlide from '../LateralSlide/LateralSlide';
-import { PopupContext } from '../../contexts/PopupContext';
 import BurgerIcon from '../BurgerIcon/BurgerIcon';
 import logoArsenal from '@/public/images/Frame 18.svg';
 import Image from 'next/image';
 
 const Header = () => {
-  const popupContext = useContext(PopupContext);
-  console.log(popupContext);
   const [navOpen, setNavOpen] = useState(false);
   const handleNavOpen = async () => {
     setNavOpen(!navOpen);
@@ -49,11 +46,9 @@ const Header = () => {
           />
         </div>
       </header>
-      {!popupContext.popupIsOpened && (
         <div className={headerStyles.header__mobileBurger}>
           <BurgerIcon handleNavOpen={handleNavOpen} navOpen={navOpen} />
         </div>
-      )}
       <LateralSlide handleNavOpen={handleNavOpen} navOpen={navOpen} />
     </>
   );
