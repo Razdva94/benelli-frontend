@@ -28,10 +28,10 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
       <section className={motoCardStyles.motoCard}>
         <div className={motoCardStyles.motoCard__container}>
           <nav className={motoCardStyles.motoCard__linkContainer}>
-            <Link href='' className={motoCardStyles.motoCard__link}>
+            <Link href='/' className={motoCardStyles.motoCard__link}>
               Главная &nbsp;/
             </Link>
-            <Link href='' className={motoCardStyles.motoCard__link}>
+            <Link href='/#motorcycles1' className={motoCardStyles.motoCard__link}>
               &nbsp;&nbsp;Мотоциклы&nbsp;&nbsp; /
             </Link>
             <p
