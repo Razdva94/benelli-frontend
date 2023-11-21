@@ -23,7 +23,7 @@ export default function RootLayout({
       <SessionProviders>
         <head>
           <meta name='yandex-verification' content='fe483d98bcc96f41' />
-          {/* <link rel="icon" href='/images/favicon.png' type="image/png"/> */}
+          <link rel="icon" href='./images/favicon.png' type="image/png"/>
         </head>
         <body>
           <Header />
