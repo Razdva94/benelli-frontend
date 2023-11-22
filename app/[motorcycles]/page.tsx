@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import MotoCard from '@/components/MotoCard/MotoCard';
 import api from '@/utils/api';
 import { notFound } from 'next/navigation';
@@ -19,7 +19,12 @@ async function getMotorcycle(params: any) {
 const page = async ({ params }: { params: { motorcycles: string } }) => {
   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
-  return <MotoCard motorcycle={motorcycle} />;
+  if (!motorcycle) {
+    return <p>Loading...</p>;
+  }
+  return (
+      <MotoCard motorcycle={motorcycle} />
+  );
 };
 
 export default page;
