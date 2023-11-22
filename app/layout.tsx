@@ -30,19 +30,6 @@ export default function RootLayout({
           <Header />
           <main className={mainStyles.main}>{children}</main>
           <Footer />
-          <Script
-            async
-            src='https://www.googletagmanager.com/gtag/js?id=G-CE8SQL4WKR'
-          ></Script>
-          <Script>
-            {`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CE8SQL4WKR');
-  `}
-          </Script>
           <Script strategy='beforeInteractive'>
             {`
               (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
