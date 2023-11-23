@@ -8,6 +8,7 @@ import VideoComponent from '@/components/VideoComponent/VideoComponent.tsx';
 
 async function getMotorcycles() {
   const motorcycles = await api.getMotorcycles();
+  console.log(motorcycles)
   return motorcycles;
 }
 
@@ -18,6 +19,7 @@ export default async function Home() {
       <VideoComponent />
       <HeaderMobile />
       <MotoList motorcycles={motorcycles} />
+      {/* <MotoList/> */}
       <Contacts />
     </>
   );

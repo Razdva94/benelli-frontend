@@ -31,6 +31,6 @@
     ".next/types/**/*.ts",
     "build/types/**/*.ts",
     "components/Navigation"
-, "utils/constants.jsx"  ],
+, "utils/constants.jsx", "components/Preloader/Preloader.jsx"  ],
   "exclude": ["node_modules"]
 }

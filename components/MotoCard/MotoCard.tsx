@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-const { Swiper, SwiperSlide } = require('swiper/react');
-const { Navigation, Zoom, Thumbs, FreeMode } = require('swiper/modules');
+// const { Swiper, SwiperSlide } = require('swiper/react');
+// const { Navigation, Zoom, Thumbs, FreeMode } = require('swiper/modules');
 import motoCardStyles from './motoCard.module.scss';
 import Link from 'next/link';
 import 'swiper/css';
@@ -12,12 +12,12 @@ import 'swiper/css/thumbs';
 import './style.css';
 import { PERFORMANCE_NAME } from '@/utils/constants';
 import OrderButton from './OrderButton/OrderButton';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+// import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import ImagePreloader from '../ImagePreloader/ImagePreloader';
 
 const MotoCard: React.FC<any> = ({ motorcycle }) => {
   const url = process.env.NEXT_PUBLIC_URL_PICTURES;
-  const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
+  // const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
   if (motorcycle) {
     const { motoLinks, description, motoName, motoPerformance, motoPrice } =
       motorcycle;
@@ -58,7 +58,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                 </h3>
                 {motoLinks && (
                   <>
-                    <Swiper
+                    {/* <Swiper
                       style={{
                         height: 'fit-content',
                         marginLeft: '0',
@@ -140,7 +140,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                           );
                         },
                       )}
-                    </Swiper>
+                    </Swiper> */}
                   </>
                 )}
               </div>

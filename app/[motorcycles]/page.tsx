@@ -19,9 +19,6 @@ async function getMotorcycle(params: any) {
 const page = async ({ params }: { params: { motorcycles: string } }) => {
   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
-  if (!motorcycle) {
-    return <p>Loading...</p>;
-  }
   return (
       <MotoCard motorcycle={motorcycle} />
   );
