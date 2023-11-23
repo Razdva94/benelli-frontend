@@ -6,7 +6,7 @@ import { SessionProviders } from '@/components/SessionProviders/SessionProviders
 import Header from '@/components/Header/Header';
 import mainStyles from './main.module.scss';
 import Footer from '@/components/Footer/Footer';
-import Script from 'next/script';
+// import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Мотоциклы Benelli Купить Отзывы и Цена Производитель и Модели Stels',
@@ -30,7 +30,7 @@ export default function RootLayout({
           <Header />
           <main className={mainStyles.main}>{children}</main>
           <Footer />
-          <Script strategy='beforeInteractive'>
+          {/* <Script strategy='beforeInteractive'>
             {`
                  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
                  m[i].l=1*new Date();
@@ -45,7 +45,7 @@ export default function RootLayout({
                       ecommerce:"dataLayer"
                  });
             `}
-          </Script>
+          </Script> */}
         </body>
       </SessionProviders>
     </html>
