@@ -14,6 +14,7 @@ import { PERFORMANCE_NAME } from '@/utils/constants';
 import OrderButton from './OrderButton/OrderButton';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import ImagePreloader from '../ImagePreloader/ImagePreloader';
+import Image from 'next/image';
 
 const MotoCard: React.FC<any> = ({ motorcycle }) => {
   const url = process.env.NEXT_PUBLIC_URL_PICTURES;
@@ -88,7 +89,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                             >
                               <SwiperSlide key={i}>
                                 <div className='swiper-zoom-container'>
-                                  <img
+                                  <Image
                                     className={motoCardStyles.motoCard__image}
                                     src={`${url}${el}`}
                                     alt='мото'
@@ -125,13 +126,12 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                             >
                               <SwiperSlide key={i}>
                                 <div className='swiper-zoom-container-mini'>
-                                  <img
+                                  <Image
                                     className={motoCardStyles.motoCard__image}
                                     src={`${url}${el}`}
                                     alt='мотик'
                                     width={62}
                                     height={41}
-                                    loading='lazy'
                                   />
                                 </div>
                               </SwiperSlide>
