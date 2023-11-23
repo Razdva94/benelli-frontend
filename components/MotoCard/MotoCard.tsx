@@ -95,6 +95,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                     alt='мото'
                                     width={2780}
                                     height={1850}
+                                    loading='eager'
                                   />
                                 </div>
                               </SwiperSlide>
@@ -132,6 +133,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                     alt='мотик'
                                     width={620}
                                     height={410}
+                                    loading='eager'
                                   />
                                 </div>
                               </SwiperSlide>
