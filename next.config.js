@@ -8,7 +8,7 @@ module.exports = {
       '4.downloader.disk.yandex.ru',
       'docs.google.com',
        'localhost',
-       'benellispb'
+       'benellispb.ru'
     ], // Здесь перечислите разрешенные хосты
   },
   env: {
