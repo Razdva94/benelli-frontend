@@ -92,9 +92,8 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                     className={motoCardStyles.motoCard__image}
                                     src={`${url}${el}`}
                                     alt='мото'
-                                    width={690}
-                                    height={470}
-                                    loading='lazy'
+                                    width={278}
+                                    height={185}
                                   />
                                 </div>
                               </SwiperSlide>
@@ -130,8 +129,8 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                     className={motoCardStyles.motoCard__image}
                                     src={`${url}${el}`}
                                     alt='мотик'
-                                    width={165}
-                                    height={150}
+                                    width={62}
+                                    height={41}
                                     loading='lazy'
                                   />
                                 </div>
