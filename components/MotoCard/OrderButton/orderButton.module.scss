@@ -1,9 +1,11 @@
 .orderButton{
   all:unset;
-  padding: 1rem;
+  padding: .5rem;
   background-color: var(--main-orange);
   color: var(--main-light);
   font-weight: 700;
   cursor: pointer;
   font-size: 1.2rem;
+  min-height: 50px;
+  height: 100%;
 }
