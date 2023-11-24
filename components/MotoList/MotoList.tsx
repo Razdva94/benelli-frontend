@@ -24,9 +24,9 @@ const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
   return (
     <section className='motoList'>
       <div className='motoList__container'>
-        <h2 className='motoList__title' id='motorcycles1'>
+        <h1 className='motoList__title' id='motorcycles1'>
           Мотоциклы
-        </h2>
+        </h1>
         <h3 className='motoList__subtitle'>Benelli</h3>
         <div
           className='motoList__catalog'
