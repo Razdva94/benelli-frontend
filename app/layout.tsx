@@ -1,4 +1,3 @@
-import { Metadata } from 'next';
 import '@/vendor/fonts.css';
 import '@/vendor/normalize.css';
 import './globals.scss';
@@ -7,12 +6,6 @@ import Header from '@/components/Header/Header';
 import mainStyles from './main.module.scss';
 import Footer from '@/components/Footer/Footer';
 import Script from 'next/script';
-
-export const metadata: Metadata = {
-  title: 'Мотоциклы Benelli Купить Отзывы и Цена Производитель и Модели Stels',
-  description:
-    'Benelli Leoncino 500 и 800 теперь доступны в Санкт-Петербурге. Посетите наш магазин и купите этот стильный мотоцикл. Лучшие цены и условия',
-};
 
 export default function RootLayout({
   children,
