@@ -45,54 +45,61 @@ const Popup: React.FC<any> = ({ image, name: motoName, onClose, open }) => {
   };
   return (
     <>
-        <div className={`popup ${open && 'popup_opened'}`}>
-          <div className='popup__container'>
-            <img
+      <div className={`popup ${open && 'popup_opened'}`}>
+        <div className='popup__container'>
+          <div className='popup__container-image'>
+            <Image
               src={`${url}${image}`}
               alt='мотоцикл'
               className='popup__image'
+              fill
+              loading='eager'
+              style={{
+                objectFit: 'contain',
+              }}
             />
-            <p className='popup__text'>Мотоцикл {motoName}</p>
-            <form
-              className='popup__form'
-              onSubmit={(e) => handleSubmitForm(e, motoName)}
-            >
-              <input
-                className='popup__input'
-                type='text'
-                placeholder='Ваше имя'
-                name='name'
-                required
-                onChange={(e) => onInputChange(e)}
-              />
-              <input
-                className='popup__input'
-                type='text'
-                placeholder='Ваш телефон'
-                name='number'
-                required
-                minLength={8}
-                onChange={(e) => onInputChange(e)}
-              />
-              <textarea
-                className='popup__inputArea'
-                placeholder='Ваше сообщение'
-                name='message'
-                onChange={(e) => onInputChange(e)}
-              />
-              <button className='popup__button' type='submit'>
-                Сохранить условия
-              </button>
-              <Image
-                src={closeIcon}
-                className='popup__closeIcon'
-                alt='крестик'
-                onClick={() => onClose()}
-              />
-            </form>
           </div>
+          <p className='popup__text'>Мотоцикл {motoName}</p>
+          <form
+            className='popup__form'
+            onSubmit={(e) => handleSubmitForm(e, motoName)}
+          >
+            <input
+              className='popup__input'
+              type='text'
+              placeholder='Ваше имя'
+              name='name'
+              required
+              onChange={(e) => onInputChange(e)}
+            />
+            <input
+              className='popup__input'
+              type='text'
+              placeholder='Ваш телефон'
+              name='number'
+              required
+              minLength={8}
+              onChange={(e) => onInputChange(e)}
+            />
+            <textarea
+              className='popup__inputArea'
+              placeholder='Ваше сообщение'
+              name='message'
+              onChange={(e) => onInputChange(e)}
+            />
+            <button className='popup__button' type='submit'>
+              Сохранить условия
+            </button>
+            <Image
+              src={closeIcon}
+              className='popup__closeIcon'
+              alt='крестик'
+              onClick={() => onClose()}
+            />
+          </form>
         </div>
-        {popupState && <FormSubPopup info={info[0]} popupType={info[1]} />}
+      </div>
+      {popupState && <FormSubPopup info={info[0]} popupType={info[1]} />}
     </>
   );
 };
