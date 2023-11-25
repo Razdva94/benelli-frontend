@@ -32,167 +32,167 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
     console.log(images);
     return (
       // <ImagePreloader images={images}>
-      <section className={motoCardStyles.motoCard}>
-        <div className={motoCardStyles.motoCard__container}>
-          <nav className={motoCardStyles.motoCard__linkContainer}>
-            <Link href='/' className={motoCardStyles.motoCard__link}>
-              Главная &nbsp;/
-            </Link>
-            <Link
-              href='/#motorcycles1'
-              className={motoCardStyles.motoCard__link}
-            >
-              &nbsp;&nbsp;Мотоциклы&nbsp;&nbsp; /
-            </Link>
-            <p
-              style={{ cursor: 'auto' }}
-              className={motoCardStyles.motoCard__link}
-            >
-              &nbsp;&nbsp;{formattedMotoName}
-            </p>
-          </nav>
-          <div className={motoCardStyles.motoCard__wrapper}>
-            <div className={motoCardStyles.motoCard__catalogContainer}>
-              <h3 className={motoCardStyles.motoCard__title}>
-                Мотоцикл <br />
-                {formattedMotoName}
-              </h3>
-              {motoLinks && (
-                <>
-                  <Swiper
-                    style={{
-                      height: 'fit-content',
-                      marginLeft: '0',
-                      '--swiper-navigation-color': 'var(--main-orange)',
-                      '--swiper-pagination-color': 'var(--main-orange)',
-                    }}
-                    zoom={true}
-                    slidesPerView={1}
-                    spaceBetween={30}
-                    loop={true}
-                    navigation={true}
-                    modules={[FreeMode, Navigation, Zoom, Thumbs]}
-                    thumbs={{ swiper: thumbsSwiper }}
-                    className={motoCardStyles.mySwiper2}
-                  >
-                    {motoLinks.map(
-                      (
-                        el: string | StaticImport,
-                        i: React.Key | null | undefined,
-                      ) => {
-                        return (
-                          <div
-                            key={`catalog_${i}`}
-                            className={
-                              motoCardStyles.motoCard__pictureContainer
-                            }
-                          >
-                            <SwiperSlide key={i}>
-                              <div className='swiper-zoom-container'>
-                                <Image
-                                  className={motoCardStyles.motoCard__image}
-                                  src={`${url}${el}`}
-                                  alt='мото'
-                                  fill
-                                  style={{
-                                    objectFit: 'contain',
-                                  }}
-                                />
-                              </div>
-                            </SwiperSlide>
-                          </div>
-                        );
-                      },
-                    )}
-                  </Swiper>
-                  <Swiper
-                    onSwiper={setThumbsSwiper}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className={motoCardStyles.mySwiper}
-                  >
-                    {motoLinks.map(
-                      (
-                        el: string | StaticImport,
-                        i: React.Key | null | undefined,
-                      ) => {
-                        return (
-                          <div
-                            key={`thumbs_${i}`}
-                            className={
-                              motoCardStyles.motoCard__pictureContainer
-                            }
-                          >
-                            <SwiperSlide key={i}>
-                              <div className='swiper-zoom-container-mini'>
-                                <Image
-                                  className={motoCardStyles.motoCard__image}
-                                  src={`${url}${el}`}
-                                  alt='мотик'
-                                  fill
-                                  // width={620}
-                                  // height={410}
-                                  style={{
-                                    objectFit: 'contain',
-                                  }}
-                                />
-                              </div>
-                            </SwiperSlide>
-                          </div>
-                        );
-                      },
-                    )}
-                  </Swiper>
-                </>
-              )}
-            </div>
-            <div className={motoCardStyles.motoCard__textContainer}>
-              <h3
-                className={motoCardStyles.motoCard__title}
-                style={{ borderBottom: '2px solid var(--main-orange)' }}
+        <section className={motoCardStyles.motoCard}>
+          <div className={motoCardStyles.motoCard__container}>
+            <nav className={motoCardStyles.motoCard__linkContainer}>
+              <Link href='/' className={motoCardStyles.motoCard__link}>
+                Главная &nbsp;/
+              </Link>
+              <Link
+                href='/#motorcycles1'
+                className={motoCardStyles.motoCard__link}
               >
-                Технические характеристики
-              </h3>
-              {PERFORMANCE_NAME.map((el, i) => {
-                return (
-                  <div
-                    key={`performance_${i}`}
-                    className={motoCardStyles.motoCard__cell}
-                  >
-                    <h4 className={motoCardStyles.motoCard__miniTitle}>{el}</h4>
-                    <p className={motoCardStyles.motoCard__performanceText}>
-                      {motoPerformanceArray[i]}
-                    </p>
-                  </div>
-                );
-              })}
-              <div className={motoCardStyles.motoCard__orderContainer}>
-                <p className={motoCardStyles.motoCard__price}>{motoPrice}</p>
+                &nbsp;&nbsp;Мотоциклы&nbsp;&nbsp; /
+              </Link>
+              <p
+                style={{ cursor: 'auto' }}
+                className={motoCardStyles.motoCard__link}
+              >
+                &nbsp;&nbsp;{formattedMotoName}
+              </p>
+            </nav>
+            <div className={motoCardStyles.motoCard__wrapper}>
+              <div className={motoCardStyles.motoCard__catalogContainer}>
+                <h3 className={motoCardStyles.motoCard__title}>
+                  Мотоцикл <br />
+                  {formattedMotoName}
+                </h3>
                 {motoLinks && (
-                  <OrderButton image={motoLinks[0]} name={formattedMotoName} />
+                  <>
+                    <Swiper
+                      style={{
+                        height: 'fit-content',
+                        marginLeft: '0',
+                        '--swiper-navigation-color': 'var(--main-orange)',
+                        '--swiper-pagination-color': 'var(--main-orange)',
+                      }}
+                      zoom={true}
+                      slidesPerView={1}
+                      spaceBetween={30}
+                      loop={true}
+                      navigation={true}
+                      modules={[FreeMode, Navigation, Zoom, Thumbs]}
+                      thumbs={{ swiper: thumbsSwiper }}
+                      className={motoCardStyles.mySwiper2}
+                    >
+                      {motoLinks.map(
+                        (
+                          el: string | StaticImport,
+                          i: React.Key | null | undefined,
+                        ) => {
+                          return (
+                            <div
+                              key={`catalog_${i}`}
+                              className={
+                                motoCardStyles.motoCard__pictureContainer
+                              }
+                            >
+                              <SwiperSlide key={i}>
+                                <div className='swiper-zoom-container'>
+                                  <Image
+                                    className={motoCardStyles.motoCard__image}
+                                    src={`${url}${el}`}
+                                    alt='мото'
+                                    width={2780}
+                                    height={1850}
+                                  />
+                                </div>
+                              </SwiperSlide>
+                            </div>
+                          );
+                        },
+                      )}
+                    </Swiper>
+                    <Swiper
+                      onSwiper={setThumbsSwiper}
+                      spaceBetween={10}
+                      slidesPerView={4}
+                      freeMode={true}
+                      watchSlidesProgress={true}
+                      modules={[FreeMode, Navigation, Thumbs]}
+                      className={motoCardStyles.mySwiper}
+                    >
+                      {motoLinks.map(
+                        (
+                          el: string | StaticImport,
+                          i: React.Key | null | undefined,
+                        ) => {
+                          return (
+                            <div
+                              key={`thumbs_${i}`}
+                              className={
+                                motoCardStyles.motoCard__pictureContainer
+                              }
+                            >
+                              <SwiperSlide key={i}>
+                                <div className='swiper-zoom-container-mini'>
+                                  <Image
+                                    className={motoCardStyles.motoCard__image}
+                                    src={`${url}${el}`}
+                                    alt='мотик'
+                                    width={620}
+                                    height={410}
+                                    loading='eager'
+                                  />
+                                </div>
+                              </SwiperSlide>
+                            </div>
+                          );
+                        },
+                      )}
+                    </Swiper>
+                  </>
                 )}
               </div>
+              <div className={motoCardStyles.motoCard__textContainer}>
+                <h3
+                  className={motoCardStyles.motoCard__title}
+                  style={{ borderBottom: '2px solid var(--main-orange)' }}
+                >
+                  Технические характеристики
+                </h3>
+                {PERFORMANCE_NAME.map((el, i) => {
+                  return (
+                    <div
+                      key={`performance_${i}`}
+                      className={motoCardStyles.motoCard__cell}
+                    >
+                      <h4 className={motoCardStyles.motoCard__miniTitle}>
+                        {el}
+                      </h4>
+                      <p className={motoCardStyles.motoCard__performanceText}>
+                        {motoPerformanceArray[i]}
+                      </p>
+                    </div>
+                  );
+                })}
+                <div className={motoCardStyles.motoCard__orderContainer}>
+                  <p className={motoCardStyles.motoCard__price}>{motoPrice}</p>
+                  {motoLinks && (
+                    <OrderButton
+                      image={motoLinks[0]}
+                      name={formattedMotoName}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className={motoCardStyles.motoCard__textContainer}>
+              {description &&
+                description.map((text: string, i: number) => {
+                  return (
+                    <p
+                      key={`description_${i}`}
+                      className={motoCardStyles.motoCard__text}
+                    >
+                      {text}
+                    </p>
+                  );
+                })}
             </div>
           </div>
-          <div className={motoCardStyles.motoCard__textContainer}>
-            {description &&
-              description.map((text: string, i: number) => {
-                return (
-                  <p
-                    key={`description_${i}`}
-                    className={motoCardStyles.motoCard__text}
-                  >
-                    {text}
-                  </p>
-                );
-              })}
-          </div>
-        </div>
-      </section>
-      //  </ImagePreloader>
+        </section>
+    //  </ImagePreloader>
     );
   } else {
     console.log('Мотоцикл не найден');

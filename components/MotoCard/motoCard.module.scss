@@ -4,8 +4,8 @@
   justify-content: center;
   margin-top: 1rem;
   &__container {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: var(--padding);
+    padding-right: var(--padding);
     max-width: 1280px;
     width: 100%;
     display: flex;
@@ -24,6 +24,7 @@
     cursor: pointer;
   }
   &__image {
+    object-fit: contain !important;
     cursor: zoom-in;
     height: auto;
     width: 100%;
