@@ -95,7 +95,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                   alt='мото'
                                   fill
                                   style={{
-                                    objectFit: 'cover',
+                                    objectFit: 'contain',
                                   }}
                                 />
                               </div>
@@ -136,7 +136,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                   // width={620}
                                   // height={410}
                                   style={{
-                                    objectFit: 'cover',
+                                    objectFit: 'contain',
                                   }}
                                 />
                               </div>
