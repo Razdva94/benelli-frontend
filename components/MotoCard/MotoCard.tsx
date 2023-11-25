@@ -13,7 +13,7 @@ import './style.css';
 import { PERFORMANCE_NAME } from '@/utils/constants';
 import OrderButton from './OrderButton/OrderButton';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import ImagePreloader from '../ImagePreloader/ImagePreloader';
+// import ImagePreloader from '../ImagePreloader/ImagePreloader';
 import Image from 'next/image';
 
 const MotoCard: React.FC<any> = ({ motorcycle }) => {
@@ -31,7 +31,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
     });
     console.log(images);
     return (
-      <ImagePreloader images={images}>
+      // <ImagePreloader images={images}>
         <section className={motoCardStyles.motoCard}>
           <div className={motoCardStyles.motoCard__container}>
             <nav className={motoCardStyles.motoCard__linkContainer}>
@@ -192,7 +192,7 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
             </div>
           </div>
         </section>
-     </ImagePreloader>
+    //  </ImagePreloader>
     );
   } else {
     console.log('Мотоцикл не найден');
