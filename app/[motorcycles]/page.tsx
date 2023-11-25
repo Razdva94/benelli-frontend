@@ -2,7 +2,20 @@ import React, { Suspense } from 'react';
 import MotoCard from '@/components/MotoCard/MotoCard';
 import api from '@/utils/api';
 import { notFound } from 'next/navigation';
-import Head from 'next/head';
+import { Metadata, ResolvingMetadata } from 'next';
+
+export async function generateMetadata(
+  { params, searchParams }: any,
+  parent: ResolvingMetadata,
+): Promise<any> {
+  const name = params.motorcycles;
+  const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
+  const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
+  return {
+    title: `Мотоцикл ${name}`,
+     description: motorcycle.description[0],
+  };
+}
 
 async function getMotorcycle(params: any) {
   try {
@@ -22,12 +35,12 @@ const page = async ({ params }: { params: { motorcycles: string } }) => {
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
   return (
     <>
-      <Head>
+      <head>
         <link
           rel='canonical'
           href={`https://benellispb.ru/${params.motorcycles}`}
         />
-      </Head>
+      </head>
       <MotoCard motorcycle={motorcycle} />
     </>
   );

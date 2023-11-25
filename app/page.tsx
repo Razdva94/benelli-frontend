@@ -13,10 +13,9 @@ export const metadata: Metadata = {
     'Benelli Leoncino 500 и 800 теперь доступны в Санкт-Петербурге. Посетите наш магазин и купите этот стильный мотоцикл. Лучшие цены и условия',
 };
 
-
 async function getMotorcycles() {
   const motorcycles = await api.getMotorcycles();
-  console.log(motorcycles)
+  console.log(motorcycles);
   return motorcycles;
 }
 
@@ -24,10 +23,12 @@ export default async function Home() {
   const motorcycles = await getMotorcycles();
   return (
     <>
+      <head>
+        <link rel='canonical' href='https://benellispb.ru/' />
+      </head>
       <VideoComponent />
       <HeaderMobile />
       <MotoList motorcycles={motorcycles} />
-      {/* <MotoList/> */}
       <Contacts />
     </>
   );
