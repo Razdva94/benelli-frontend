@@ -95,7 +95,6 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
                                     alt='мото'
                                     width={2780}
                                     height={1850}
-                                    layout="responsive"
                                   />
                                 </div>
                               </SwiperSlide>
