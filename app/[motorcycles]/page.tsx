@@ -8,11 +8,10 @@ export async function generateMetadata(
   { params, searchParams }: any,
   parent: ResolvingMetadata,
 ): Promise<any> {
-  const name = params.motorcycles;
   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
   return {
-    title: `Мотоцикл ${name}`,
+    title: `Мотоцикл ${motorcycleNameWithSpaces }`,
      description: motorcycle.description[0],
   };
 }
