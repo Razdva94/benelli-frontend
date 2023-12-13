@@ -1,6 +1,8 @@
 .contacts {
   display: flex;
   width: 100%;
+  position: relative;
+  aspect-ratio: 962/641;
 }
 
 .contacts__building {
@@ -24,5 +26,8 @@
 @media screen and (max-width: 780px) {
   .contacts__building-mobile {
     display: inline-block;
+  }
+  .contacts {
+    aspect-ratio: 3559/5332;
   }
 }
