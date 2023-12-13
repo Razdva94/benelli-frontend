@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Мотоциклы Benelli Купить Отзывы и Цена Производитель и Модели Stels',
   description:
     'Benelli Leoncino 500 и 800 теперь доступны в Санкт-Петербурге. Посетите наш магазин и купите этот стильный мотоцикл. Лучшие цены и условия',
+    alternates: {
+      canonical: 'https://benellispb.ru',
+    },
 };
 
 async function getMotorcycles() {
@@ -23,9 +26,6 @@ export default async function Home() {
   const motorcycles = await getMotorcycles();
   return (
     <>
-      <head>
-        <link rel='canonical' href='https://benellispb.ru/' />
-      </head>
       <VideoComponent />
       <HeaderMobile />
       <MotoList motorcycles={motorcycles} />

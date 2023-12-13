@@ -11,8 +11,11 @@ export async function generateMetadata(
   const motorcycleNameWithSpaces = params.motorcycles.replace(/_/g, ' ');
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
   return {
-    title: `Мотоцикл ${motorcycleNameWithSpaces }`,
-     description: motorcycle.description[0],
+    title: `Мотоцикл ${motorcycleNameWithSpaces}`,
+    description: motorcycle.description[0],
+    alternates: {
+      canonical: `https://benellispb.ru/${params.motorcycles}`,
+    },
   };
 }
 
@@ -34,12 +37,6 @@ const page = async ({ params }: { params: { motorcycles: string } }) => {
   const motorcycle = await getMotorcycle({ motorcycleNameWithSpaces });
   return (
     <>
-      <head>
-        <link
-          rel='canonical'
-          href={`https://benellispb.ru/${params.motorcycles}`}
-        />
-      </head>
       <MotoCard motorcycle={motorcycle} />
     </>
   );
