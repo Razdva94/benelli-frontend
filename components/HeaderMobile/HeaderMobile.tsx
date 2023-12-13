@@ -15,8 +15,6 @@ const HeaderMobile = () => {
         className={headerStyles.header__mobileImage}
         src={BenelliMobile}
         alt='обложка для мобильника'
-        width={1000}
-        height={2000}
       />
       <div className={headerStyles.header__flag}>
         <div
