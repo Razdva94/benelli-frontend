@@ -30,6 +30,7 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
                 alt='фото мотоцикла'
                 className={motoStyles.moto__image}
                 fill
+                loading='eager'
               />
             </div>
           </Link>
