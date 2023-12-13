@@ -8,9 +8,9 @@ import api from '@/utils/api.ts';
 import VideoComponent from '@/components/VideoComponent/VideoComponent.tsx';
 
 export const metadata: Metadata = {
-  title: 'Мотоциклы Benelli Купить Отзывы и Цена Производитель и Модели Stels',
+  title: 'Benelli мотоцентр СПб. Мотоциклы Benelli Купить Отзывы и Цена Производитель и Модели Stels',
   description:
-    'Benelli Leoncino 500 и 800 теперь доступны в Санкт-Петербурге. Посетите наш магазин и купите этот стильный мотоцикл. Лучшие цены и условия',
+    'Benelli мотоцентр СПб. Benelli Leoncino 500 и 800 теперь доступны в Санкт-Петербурге. Посетите наш магазин и купите этот стильный мотоцикл. Лучшие цены и условия',
     alternates: {
       canonical: 'https://benellispb.ru',
     },

@@ -33,3 +33,16 @@
     transform: rotate(360deg) scale(1.1);
   }
 }
+
+@media screen and (max-width: 1330px) {
+  .action{
+    right: 0px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .action{
+    right: 0px;
+    width: 100px;
+    height: 100px;
+  }
+}
