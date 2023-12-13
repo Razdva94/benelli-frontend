@@ -7,8 +7,8 @@ import Image from 'next/image';
 const Contacts = () => {
   return (
     <section className='contacts'>
-      <Image src={building} alt='здание' className='contacts__building' loading='eager'/>
-      <Image src={mobileBuilding} alt='здание' className='contacts__building-mobile' loading='eager'/>
+      <Image src={building} alt='здание' className='contacts__building' loading='eager' width={2000} height={1000}/>
+      <Image src={mobileBuilding} alt='здание' className='contacts__building-mobile' loading='eager' width={1000} height={2000}/>
     </section>
   );
 };
