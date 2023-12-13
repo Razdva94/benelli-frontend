@@ -25,10 +25,11 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
           )}
           <Link href={`/${formattedName}`} style={{ textDecoration: 'none' }}>
             <div className={motoStyles.moto__imageContainer}>
-              <img
+              <Image
                 src={`${url}${image}`}
                 alt='фото мотоцикла'
                 className={motoStyles.moto__image}
+                fill
               />
             </div>
           </Link>
