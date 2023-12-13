@@ -48,6 +48,7 @@ const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
                     price={moto.motoPrice}
                     image={moto.motoLinks[0]}
                     handleDeleteMoto={handleDeleteMoto}
+                    loading='eager'
                   />
                 ),
             )}
@@ -65,6 +66,7 @@ const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
                     price={moto.motoPrice}
                     image={moto.motoLinks[0]}
                     handleDeleteMoto={handleDeleteMoto}
+                    loading='eager'
                   />
                 ),
             )}
