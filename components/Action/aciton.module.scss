@@ -1,0 +1,35 @@
+.action{
+  display: block;
+  overflow: visible;
+  width: 150px;
+  height: 150px;
+  z-index: 5;
+  position: absolute;
+  top: 110px;
+  right: -20px;
+  cursor: pointer;
+  animation: rotation 30s linear infinite;
+  transition: transform 0.3s ease;
+  &:hover{
+    animation: scale 30s linear infinite;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg) ;
+  }
+
+  to {
+    transform: rotate(360deg) ;
+  }
+}
+@keyframes scale {
+  from {
+    transform: rotate(0deg) scale(1.1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1.1);
+  }
+}

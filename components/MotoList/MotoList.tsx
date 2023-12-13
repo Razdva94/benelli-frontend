@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Moto from '../Moto/Moto';
 import api from '../../utils/api';
 import './motoList.css';
+import Action from '../Action/Action';
 
 const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
   const [motorcycles, setMotorcycles] = useState(initialMotorcycles);
@@ -28,6 +29,7 @@ const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
           Мотоциклы
         </h1>
         <h3 className='motoList__subtitle'>Benelli</h3>
+        <Action />
         <div
           className='motoList__catalog'
           style={{
