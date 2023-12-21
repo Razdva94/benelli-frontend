@@ -30,6 +30,7 @@ const Moto: React.FC<any> = ({ name, price, image, handleDeleteMoto }) => {
                 alt='фото мотоцикла'
                 className={motoStyles.moto__image}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 loading='eager'
               />
             </div>

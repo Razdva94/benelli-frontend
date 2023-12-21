@@ -4,7 +4,7 @@ import './burgerIcon.css'
 const BurgerIcon:React.FC<any> = ({handleNavOpen, navOpen}) => {
   
   return (
-    <div onClick={handleNavOpen} className={`menu-btn ${navOpen && 'menu-btn_active'}`}>
+    <div onClick={handleNavOpen} className={`menu-brg ${navOpen && 'menu-brg_active'}`}>
       <span></span>
       <span></span>
       <span></span>

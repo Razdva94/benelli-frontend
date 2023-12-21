@@ -29,7 +29,6 @@ const MotoCard: React.FC<any> = ({ motorcycle }) => {
     const images = motoLinks.map((el: any, i: any) => {
       return url + el;
     });
-    console.log(images);
     return (
       // <ImagePreloader images={images}>
         <section className={motoCardStyles.motoCard}>

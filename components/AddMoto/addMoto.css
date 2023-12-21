@@ -58,3 +58,8 @@
   cursor: pointer;
 }
 
+.addMoto__form-container{
+  display: flex;
+  flex-direction: column;
+}
+

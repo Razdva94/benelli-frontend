@@ -5,7 +5,7 @@ import api from '../../utils/api';
 import './motoList.css';
 import Action from '../Action/Action';
 
-const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
+const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles, bannerLinks }) => {
   const [motorcycles, setMotorcycles] = useState(initialMotorcycles);
   const handleDeleteMoto = (motoName: any) => {
     api
@@ -29,7 +29,7 @@ const MotoList: React.FC<any> = ({ motorcycles: initialMotorcycles }) => {
           Мотоциклы
         </h1>
         <h3 className='motoList__subtitle'>Benelli</h3>
-        <Action />
+        {(bannerLinks && bannerLinks.length > 0) && <Action bannerLinks={bannerLinks}/>}
         <div
           className='motoList__catalog'
           style={{

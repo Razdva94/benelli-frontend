@@ -18,17 +18,23 @@ export const metadata: Metadata = {
 
 async function getMotorcycles() {
   const motorcycles = await api.getMotorcycles();
-  console.log(motorcycles);
   return motorcycles;
+}
+
+async function getBannerLinks() {
+  const banners = await api.getBanners();
+  return banners
 }
 
 export default async function Home() {
   const motorcycles = await getMotorcycles();
+  const bannerLinksPromise = getBannerLinks();
+  const bannerLinks = (await bannerLinksPromise)[0]?.bannerLinks;
   return (
     <>
       <VideoComponent />
       <HeaderMobile />
-      <MotoList motorcycles={motorcycles} />
+      <MotoList motorcycles={motorcycles} bannerLinks={bannerLinks}/>
       <Contacts />
     </>
   );

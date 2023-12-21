@@ -5,6 +5,7 @@ import useForm from '../../hooks/useForm';
 import api from '../../utils/api';
 import FormSubPopup from '../FormSubPopup/FormSubPopup';
 import Image from 'next/image';
+import CrossIcon from '../CrossIcon/CrossIcon';
 
 const Popup: React.FC<any> = ({ image, name: motoName, onClose, open }) => {
   const url = process.env.NEXT_PUBLIC_URL_PICTURES;
@@ -90,12 +91,13 @@ const Popup: React.FC<any> = ({ image, name: motoName, onClose, open }) => {
             <button className='popup__button' type='submit'>
               Сохранить условия
             </button>
-            <Image
+            <CrossIcon onClose={onClose}/>
+            {/* <Image
               src={closeIcon}
               className='popup__closeIcon'
               alt='крестик'
               onClick={() => onClose()}
-            />
+            /> */}
           </form>
         </div>
       </div>

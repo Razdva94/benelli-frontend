@@ -20,19 +20,44 @@ class Api {
       body: JSON.stringify(requestBody),
     });
   }
-  
 
-  postMotoPhotos(formData: any, motoName: string){
+  postMotoPhotos(formData: any, motoName: string) {
     return this._request(`${this._url}/photos?motoName=${motoName}`, {
       method: 'POST',
-      body: formData, 
+      body: formData,
     });
   }
 
+  postPhotoBanner(formData: any) {
+    return this._request(`${this._url}/photoBanner`, {
+      method: 'POST',
+      body: formData,
+    });
+  }
 
-  changeMotoInfo(motoName: any, motoPrice: any, description: any, motoLinks?: any) {
-    const requestBody: { motoName: any; motoPrice?: any; description?: any; motoLinks?: any } = { motoName };
-    if (motoPrice) requestBody.motoPrice  = motoPrice ;
+  postBannerLinks(bannerLinks: any) {
+    const requestBody = {
+      bannerLinks,
+    };
+    return this._request(`${this._url}/banner`, {
+      method: 'POST',
+      body: JSON.stringify(requestBody),
+      headers: this._headers,
+    });
+  }
+  changeMotoInfo(
+    motoName: any,
+    motoPrice: any,
+    description: any,
+    motoLinks?: any,
+  ) {
+    const requestBody: {
+      motoName: any;
+      motoPrice?: any;
+      description?: any;
+      motoLinks?: any;
+    } = { motoName };
+    if (motoPrice) requestBody.motoPrice = motoPrice;
     if (description.length > 0) requestBody.description = description;
     if (motoLinks?.length > 0) requestBody.motoLinks = motoLinks;
 
@@ -42,14 +67,32 @@ class Api {
       body: JSON.stringify(requestBody),
     });
   }
-  deleteMotoPhotos(photoArr: any){
+  deleteMotoPhotos(photoArr: any) {
     const requestBody = {
-     photoArr
+      photoArr,
     };
     return this._request(`${this._url}/photos`, {
       headers: this._headers,
-      method:  'DELETE',
-      body: JSON.stringify(requestBody), 
+      method: 'DELETE',
+      body: JSON.stringify(requestBody),
+    });
+  }
+
+  deleteBannersPhotos(photoArr: any) {
+    const requestBody = {
+      photoArr,
+    };
+    return this._request(`${this._url}/photoBanner`, {
+      headers: this._headers,
+      method: 'DELETE',
+      body: JSON.stringify(requestBody),
+    });
+  }
+
+  deleteBannersLinks(){
+    return this._request(`${this._url}/banner`, {
+      headers: this._headers,
+      method: 'DELETE',
     });
   }
 
@@ -65,7 +108,7 @@ class Api {
       motoPrice,
       description,
       motoPerformance,
-      motoLinks
+      motoLinks,
     };
 
     return this._request(`${this._url}/motorcycles`, {
@@ -75,9 +118,9 @@ class Api {
     });
   }
 
-  deleteMotorcycle( motoName: string,){
+  deleteMotorcycle(motoName: string) {
     const requestBody = {
-      motoName
+      motoName,
     };
     return this._request(`${this._url}/motorcycles`, {
       method: 'DELETE',
@@ -86,7 +129,7 @@ class Api {
     });
   }
 
-  getMotorcycles(){
+  getMotorcycles() {
     return this._request(`${this._url}/motorcycles`, {
       method: 'GET',
       headers: this._headers,
@@ -94,7 +137,15 @@ class Api {
     });
   }
 
-  getMotorcycle(motoName:string){
+  getBanners() {
+    return this._request(`${this._url}/banner`, {
+      method: 'GET',
+      headers: this._headers,
+      cache: 'no-store',
+    });
+  }
+
+  getMotorcycle(motoName: string) {
     return this._request(`${this._url}/motorcycle`, {
       method: 'POST',
       headers: this._headers,
@@ -103,9 +154,9 @@ class Api {
     });
   }
 
-
   _checkResponse(res: Response) {
     if (res.ok) {
+      console.log('1', res);
       return res.json();
     }
     return Promise.reject(`Ошибка: ${res.status}`);
